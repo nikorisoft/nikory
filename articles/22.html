@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="ja"><head>
+        <title>Plastic Bubbles are Valued as Experience Points - nikory</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    <base href="../"><link rel="stylesheet" href="./css/nikory.css"><meta property="og:title" content="Plastic Bubbles are Valued as Experience Points - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/22.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/22_tb.jpg"><meta property="og:description" content="グローバルな経県値を入力するサイトを作ってみる"></head>
+    <body>
+        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><strong>nikory</strong></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./33.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>Plastic Bubbles are Valued as Experience Points</h1><p>Created at 2021/12/20 22:12:08<span>and last updated at 2021/12/20 22:42:47</span><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/6531">異世界行ったら本気だすぴょこりんクラスタ Advent Calendar 2021</a>のために書かれたものです。</p>
+<p>昨今のゲーム(・プラットフォーム)には、かならず実績(achievements)というものがあります。昨今注目されているゲーミフィケーションの一つの要素としては欠かせないものでしょう。適当に検索しただけでも、<a href="https://www.sciencedirect.com/science/article/abs/pii/S074756321930086X">実績はパフォーマンスを向上させる</a>なんて論文も出てくる(本文は読んでいません)くらいですから、人のあらゆる活動において考慮すべき一要素であることは間違いありません。</p>
+<p>そんなわけで(強引な展開)、今回は旅行に伴う実績の一つである「経県値」のお話です。</p>
+<h2><span>経県値とは何か</span></h2><p><a href="https://uub.jp/kkn/">こちらのサイト</a>がたぶん最初に提案したのだと思いますが、各都道府県における経験（居住・宿泊・・・）を数値化したものです。経験は居住が最も高い価値を有し5点となっています。これを各都道府県ごとに算出し、それを合計した得点が生涯経県値とされています。</p>
+<p>これは大変良い実績であり、自分もこれを高めるべく日本各地に旅行を行っておりましたが、数年前に全都道府県宿泊となってしまい、これ以上得点を高めるには、いろんな都道府県に居住するということを行う必要があります。これはこれで、多少やろうと思っているところではありますが、いかんせん金銭的コストもそのほか必要な労力も、旅行に比して膨大なものとなるので、そうそう簡単に得点を上げるのは難しいものです。</p>
+<h2><span>グローバル経県値</span></h2><p>ということで、この概念を拡張してそれを管理するWebサイトを作ってみようというのが今回のテーマです。拡張というのは、より細分化（経市町村値）するか、より広域化（経国値）するかの二つの方向が考えられますが、今回は後者で行きたいと思います。パンデミックを考慮すると前者のほうがまだやりやすいのかもしれませんが、近い将来に期待をこめてということで。</p>
+<h3><span>経験値の単位</span></h3><p>では国ごとなのはいいとして、経験値をカウントする単位(広さ)は何にすべきなのでしょうか。一つの案は当然国単位なのですが、<a href="https://www.amcharts.com/visited_countries/">既存のサイト</a>があったりしますし、アメリカ宿泊で4点かーというのもちょっと大味すぎる気がします。ですので、その次の単位、すなわち日本だと都道府県、アメリカだと州くらいがいいのではないでしょうか。</p>
+<h3><span>県とは?</span></h3><p>その国の次(下位)の単位とはどう定義すればよいでしょうか。名前をとってみても、都道府県(prefecture)・州(State)・地域圏(région)・省・道などなど国さまざまです。何か都合のいい定義がほしくなるところです。</p>
+<h3><span>ISO 3166</span></h3><p>そんな都合の良い国際規格がちゃんとありました。<a href="https://en.wikipedia.org/wiki/ISO_3166">ISO 3166</a>です。ISO 3166-1は国のコード、ISO 3166-2はその下の地域のコードを定義したものです。</p>
+<p>たとえば、ISO 3166-1 alpha-2(アルファベット2文字のコード)では、日本はJP、アメリカはUSと定義されています。そして、<a href="https://en.wikipedia.org/wiki/ISO_3166-2:JP">ISO 3166-2:JP</a>は、日本のその下位の地域、すなわち都道府県が定義されており、茨城県は<code>JP-08</code>、香川県は<code>JP-37</code>のようなコードが与えられています(この数字は、全国地方公共団体コードが使われていますね)。アメリカの<a href="https://en.wikipedia.org/wiki/ISO_3166-2:US">ISO 3166-2:US</a>も、カリフォルニア州は<code>US-CA</code>、アーカンソー州は<code>US-AR</code>とそのままで定義されています。</p>
+<p>ちょうど良さそうですので、このコードを用いてグローバルな経県値を定義することにします。</p>
+<h2><span>ExpWorldの実装</span></h2><p>ということで、<a href="/apps/expworld/">作ってみました</a>。国のテーブルの名前をクリックすると、各国の地域ごとに経験値を記録することができます。</p>
+<p>このサイト(GitHub Pages)で運用するために、静的なコンテンツのみで構成する必要があります。ですので、バックエンドにはAPIサーバーなどを必要とせずに、ブラウザだけで動くようになっています（そのためデータの保存先は、ブラウザのLocal Storageか、ダウンロードによってローカルマシンということになります）</p>
+<p><a href="https://github.com/nikorisoft/expworld/">ソースコードはこちら</a>です。ライセンスはApache-2.0 Licenseとしています。</p>
+<h3><span>使ったライブラリ</span></h3><p>下記のライブラリを使用しています。</p>
+<ul>
+<li>フロントエンドフレームワーク: <a href="https://vuejs.org/">Vue.js (v3)</a></li>
+<li>地図ライブラリ: <a href="https://leafletjs.com/">Leaflet</a></li>
+<li>CSSライブラリ: <a href="https://getuikit.com/">UIKit</a></li>
+</ul>
+<p>地図ライブラリについては、<a href="./articles/18.html">少し前に</a>使ったのでその続きという感じです。あとは、このblogと同じですね。</p>
+<h3><span>使ったデータ</span></h3><p>今回の問題は(というよりいつも?)表示するべきデータです。</p>
+<p>必要なのは、</p>
+<ul>
+<li>ISO 3166の情報 (特にISO 3166-2)</li>
+<li>ISO 3166-2に定義されている地域それぞれの地図情報</li>
+</ul>
+<p>の二つです。</p>
+<p>ISO 3166-2は国ごとに定義されているので、かなり膨大な量になります。ISO 3166-1だけなら頑張れば手入力で作ることができると思いますが、ISO 3166-2のほうはかなりつらいです。</p>
+<p>探したところ、それぞれ</p>
+<ul>
+<li><a href="https://github.com/esosedi/3166">iso3166-2-db</a> (<a href="https://www.npmjs.com/package/iso3166-2-db">npm</a>)</li>
+<li><a href="https://www.volkerkrause.eu/2021/02/13/osm-country-subdivision-boundary-polygons.html">ISO 3166-1/2 Boundary Polygons</a> (<a href="https://invent.kde.org/vkrause/iso3166-boundary-builder">Builder</a>)</li>
+</ul>
+<p>が見つかったので、これらを用いることにしました。</p>
+<p>後者は<a href="https://www.openstreetmap.org/">OpenStreetMap</a>のデータ(<a href="https://planet.openstreetmap.org/">planet.osm</a>)から変換して作られたもののようです。確かにOpenStreetMapはISO 3166-2などの行政区画情報も入っているので、うまく引き出せば使えそうなのですが、結局巨大なDBからがんばって取ってくるしかないようなので、地図といて以外ではなかなか使うのが難しいデータですね・・・。</p>
+<p>なお、これだけだとやはりデータが巨大になってしまうので、<a href="https://github.com/mbloch/mapshaper">mapshaper</a>を用いて単純化しています。</p>
+<h2><span>そのほか</span></h2><h3><span>Future Work</span></h3><ul>
+<li>境界の形がおかしい国・地域がある<ul>
+<li>とりあえず目立つのは、南アフリカと台湾でしょうか。南アフリカはレソトなどがあるせいで、内側と外側がうまく判定できなかったんですかね・・・（トポロジーとか変なことがおきそう）。</li>
+<li>この二つは、単純化しない状態でも形はほとんど変わらなかったので、元々の変換がおかしい可能性があります。自前でOSMのデータからの変換処理を書かないといけないのかもしれません・・</li>
+<li>他方、例えばバチカン市国は単なる三角形になってますが、これは単純化処理のやりすぎな気がいたします。</li>
+<li>そもそも境界が、陸地ではなく領海とかも入った図形になっているようです。これはこれで元データの性質なので、しょうがないところですが・・。</li>
+</ul>
+</li>
+<li>ローカライゼーション<ul>
+<li>とりあえず最低限英語作っておけばいいやというやる気の無い感じなのですが、まあ日本語は作っておきたいところですね。</li>
+</ul>
+</li>
+<li>国単位の経県値と地域単位の経県値の関係<ul>
+<li>実は、今のバージョンではこの二つは完全に独立してしまっています（なので、東京都は居住でも日本は宿泊扱いみたいな矛盾した入力もできてしまいます）。スコアもバラバラなので、地域単位の経験値の合計が国単位の経験値の合計になっているわけでもありません（というか前者のほうがはるかに大きくなるはず）</li>
+</ul>
+</li>
+<li>一覧性が足りない<ul>
+<li>各国のデータを入力できるようになっているのですが、その結果を一覧して眺めるというのが逆に難しくなっています。すべての国の第2レベルまで一つの地図で表示するのはわかりにくいのでどうしたものでしょうね。こういう情報を見やすくどのように表示するかというのは、十分ユーザーインタフェースの研究とかになりそうな感じです。</li>
+</ul>
+</li>
+<li>経県値のカスタマイズ<ul>
+<li>いまは決められた6段階で固定になっていますが、人によってはカスタマイズしたくなるかもしれません。たとえば、その地域の主たる都市で経験した場合にはポイント2倍とか(つまり、日本だと都道府県庁所在地で宿泊した場合には2倍とか)、もう少し段階を細分化したいとかいろいろあるでしょう。そういったカスタマイズ機能が必要になるかもしれません。他方、人の値と比較するのが難しくなりますが（現状もしづらいのですけど）</li>
+</ul>
+</li>
+<li>データのサーバー保存<ul>
+<li>サーバー側でデータを保存できるようにするというのも、もしかしたら必要かもしれません。ランキングとか作れるようになりますしね。とりあえずは、逆に保存しない（できない）ことで安心してお使いいただけるということにしておきましょう。</li>
+</ul>
+</li>
+</ul>
+<h3><span>余談</span></h3><p>なお、<code>iso3166-2-db</code>では、<code>dispute/UN</code> ディレクトリのデータを使用しています。ええ。単純に国や地域の正確な網羅的なデータがほしいと言ってしまうのですが、「正しい」一つのデータというのは存在しえないのが世の中の難しいところですね。国内であっても、富士山山頂付近の静岡県と山梨県の県境みたいな問題はありますからね。</p>
+<p>今回は、経験値の数値化と単なる可視化をしたかっただけですので、元にしたデータをそのまま利用しております。それ以外の意図はまったくありません。ですので、たとえば北海道や島根県の領域をじっくり見て何かの意図を感じるのは完全な間違いです。</p>
+<h4><span>もっと余談</span></h4><p>タイトルは何も思いつかなかったので、「世界をわが手に」(The Trouble with Bubbles)によります。SFの原作ではなく、ぱにぽにだっしゅ!第3話の次回予告（「世界は我が手に」）からです。響きが良いからというだけで他意はありません。</p>
+<h2><span>まとめ</span></h2><p>ということで、グローバルな経県値を管理するためのWebサイトを作ってみました。やっぱり、データに多少問題があっても可視化されるとうれしいものがありますし、作るのもやる気がでてきます。可視化できるシステムは、やっぱりいいなという気持ちになります。行ったことのない国でも、第2レベルの行政区画がどうなってるかを見るだけでもなかなかおもしろいと感じますしね。</p>
+<p>まあその一方で可視化するためのデータを収集して整備するところが大変だったりするので、世の中楽なことはないというところですかね。</p>
+<p>ちなみに、自分の国単位の経県値を入力したところ、たったの83点でした。世界は広いですね。</p>
+<!--- nikory-metadata: { "image": "22_tb.jpg", "description": "グローバルな経県値を入力するサイトを作ってみる" } -->
+</div></div></main><footer><div>nikory - Ver. 1.0</div><div>Copyright © 2018-2024<a href="https://github.com/nikorisoft">nikorisoft</a></div></footer></div></div>
+    
+
+</body></html>
