@@ -2816,3 +2816,7 @@ footer a {
   color: var(--pico-secondary);
   font-size: 0.9rem;
 }
+
+p.tableblock {
+  margin-bottom: 0;
+}

@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="ja"><head>
         <title>ギャップレス再生 - nikory</title>
+        <meta charset="utf-8">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width,initial-scale=1">
     <base href="../"><link rel="stylesheet" href="./css/nikory.css"><link rel="stylesheet" href="./css/a11y-light.css"><meta property="og:title" content="ギャップレス再生 - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/16.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"></head>
     <body>
-        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><strong>nikory</strong></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/34.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>ギャップレス再生</h1><p>Created at 2020/12/14 2:38:42<span>and last updated at 2020/12/15 12:21:33</span><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
+        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><strong>nikory</strong></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/35.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>ギャップレス再生</h1><p>Created at 2020/12/14 2:38:42<span>and last updated at 2020/12/15 12:21:33</span><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
 <p>個人用のサーバーにおいてある大量の楽曲をどこでも手軽に再生する方法としては、いろいろ模索した結果、Webブラウザでこれを再生するという方法が一番良いということになるでしょう。
 しかしそこで課題となるのは、ギャップレス再生(Gapless playback / seamless playback)です。これはある曲と次の曲の間に、全くギャップを置かずに(切れ目なく)再生することです。</p>
 <p>これが必要になるのは、本来はつながっている曲なのに、何らかの理由でファイルが分かれている場合、CDでいえばトラックが分かれている場合です。有名な例でいえば、ベートーヴェンの<a href="https://ja.wikipedia.org/wiki/%E4%BA%A4%E9%9F%BF%E6%9B%B2%E7%AC%AC5%E7%95%AA_(%E3%83%99%E3%83%BC%E3%83%88%E3%83%BC%E3%83%B4%E3%82%A7%E3%83%B3)">交響曲第5番 Op.67</a>です。いわゆる「運命」ですね。この曲の第3楽章と第4楽章は続けて演奏されますが、たいていのCDはここを2トラックを分けています。</p>
