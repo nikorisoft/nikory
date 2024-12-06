@@ -2820,3 +2820,47 @@ footer a {
 p.tableblock {
   margin-bottom: 0;
 }
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5ch;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pswp-caption-content {
+  color: var(--pico-secondary);
+  font-size: 0.9rem;
+}
+
+table .halign-left {
+  text-align: left;
+}
+
+table .halign-center {
+  text-align: center;
+}
+
+table .halign-right {
+  text-align: right;
+}
+
+table .valign-top {
+  vertical-align: top;
+}
+
+table .valign-center {
+  vertical-align: middle;
+}
+
+table .valign-bottom {
+  vertical-align: bottom;
+}
