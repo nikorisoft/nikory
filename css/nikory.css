@@ -2864,3 +2864,19 @@ table .valign-center {
 table .valign-bottom {
   vertical-align: bottom;
 }
+
+.fit-content {
+  width: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

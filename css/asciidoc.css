@@ -1,0 +1,65 @@
+th,
+th p {
+    font-weight: bold;
+}
+table td,
+table th {
+    border-style: solid;
+}
+
+th {
+    --pico-border-width-side: 0.0625rem;
+}
+td {
+    --pico-border-width-side: var(--pico-border-width);
+}
+
+table.frame-all {
+    border-width: var(--pico-border-width);
+    border-color: var(--pico-table-border-color);
+}
+
+table.frame-ends {
+    border-width: var(--pico-border-width) 0;
+    border-color: var(--pico-table-border-color);
+}
+
+table.frame-sides {
+    border-width: 0 var(--pico-border-width);
+    border-color: var(--pico-table-border-color);
+}
+
+table.grid-all > * > tr > * {
+    border-width: var(--pico-border-width) var(--pico-border-width-side);
+    border-color: var(--pico-table-border-color);
+}
+
+table.grid-cols > * > tr > * {
+    border-width: 0 var(--pico-border-width-side);
+    border-color: var(--pico-table-border-color);
+}
+
+table.grid-rows > * > tr > * {
+    border-width: var(--pico-border-width) 0;
+    border-color: var(--pico-table-border-color);
+}
+
+table.frame-none > colgroup + * > :first-child > *,
+table.frame-sides > colgroup + * > :first-child > * {
+    border-top-width: 0;
+}
+
+table.frame-none > :last-child > :last-child > *,
+table.frame-sides > :last-child > :last-child > * {
+    border-bottom-width: 0;
+}
+
+table.frame-none > * > tr > :first-child,
+table.frame-ends > * > tr > :first-child {
+    border-left-width: 0;
+}
+
+table.frame-none > * > tr > :last-child,
+table.frame-ends > * > tr > :last-child {
+    border-right-width: 0;
+}
