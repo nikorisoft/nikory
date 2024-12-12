@@ -65,7 +65,8 @@ async function onReady() {
         volumeInput.setAttribute("max", 150);
         volumeInput.setAttribute("value", t.gainValue * 100);
         volumeInput.addEventListener("change", (event) => {
-            t.setGain(parseInt(event.target.value) / 100.0, false);
+            t.setGain(parseInt(event.target.value) / 100.0);
+            applySoloAndMute();
         });
         volumeCol.appendChild(volumeInput);
 
@@ -96,7 +97,7 @@ class AudioTrack {
         this.buffer.buffer = data;
 
         this.gain = context.createGain();
-        this.setGain(this.gainValue);
+        this.updateVolume(this.gainValue);
 
         this.buffer.connect(this.gain).connect(context.destination);
     }
@@ -120,9 +121,13 @@ class AudioTrack {
         this.buffer = null;
     }
 
-    setGain(value, anySolo) {
+    setGain(value) {
+        this.gainValue = value;
+    }
+
+    updateVolume(value, anySolo) {
         if (value != null) {
-            this.gainValue = value;
+            this.setGain(value);
         }
         if (this.gain != null) {
             if ((anySolo && this.solo === false) || this.muted === true) {
@@ -197,6 +202,6 @@ function applySoloAndMute() {
     const anySolo = tracks.find((t) => t.solo === true) != null;
 
     for (const t of tracks) {
-        t.setGain(null, anySolo);
+        t.updateVolume(null, anySolo);
     }
 }
