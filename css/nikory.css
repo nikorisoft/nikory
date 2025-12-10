@@ -2833,6 +2833,7 @@ hgroup a {
 }
 
 footer {
+  margin-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2912,4 +2913,233 @@ table .valign-bottom {
 
 .text-right {
   text-align: right;
+}
+
+.nitrox {
+  --line-color: var(--pico-secondary);
+  --bg-color: var(--pico-secondary);
+  --accent-color: #f97316;
+  --radius-lg: 24px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+.nitrox h3 {
+  margin-bottom: 0.5rem;
+}
+.nitrox .subtitle {
+  color: var(--pico-secondary);
+  font-weight: 500;
+}
+.nitrox header {
+  margin-bottom: 1rem;
+}
+.nitrox .header-contents {
+  margin-bottom: 1rem;
+}
+.nitrox .trip-content-grid {
+  display: block;
+}
+.nitrox .map-frame {
+  height: 350px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--surface-color);
+  position: relative;
+  margin-bottom: 40px; /* Space on mobile */
+  z-index: 10;
+}
+.nitrox #trip-map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.nitrox .timeline-section h4 {
+  margin: 40px 0 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nitrox .timeline-track {
+  position: relative;
+  padding-left: 40px;
+  border-left: 2px dashed var(--line-color);
+  margin-left: 10px;
+}
+.nitrox .day-chip {
+  background: var(--pico-primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.nitrox .timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.nitrox .timeline-dot {
+  position: absolute;
+  left: -49px;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-color);
+  border: 2px solid var(--text-muted);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.nitrox .timeline-item.active .timeline-dot {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.2);
+  transform: scale(1.1);
+}
+.nitrox .card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.nitrox .time-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nitrox .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-color);
+}
+.nitrox .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.nitrox .card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+.nitrox .card-contents {
+  flex-grow: 1;
+}
+.nitrox .card-icon {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  background: var(--bg-color);
+  padding: 8px;
+  border-radius: 12px;
+}
+.nitrox .route-info {
+  padding: 12px;
+  border: solid 1px var(--bg-color);
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+.nitrox .misc-data {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: solid 1px var(--bg-color);
+}
+.nitrox .info-line {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.nitrox .info-line i {
+  color: var(--text-muted);
+  margin-right: 0.5em;
+}
+.nitrox .route-viz {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.nitrox p {
+  margin-bottom: 0;
+}
+.nitrox .time-from {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.nitrox .time-until {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.nitrox .transportation-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nitrox .transportation-icon i {
+  font-size: 1.25rem;
+}
+.nitrox .transportation-icon .number,
+.nitrox .transportation-icon .duration {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.nitrox .time-loc {
+  display: flex;
+  flex-direction: column;
+}
+.nitrox .time-loc:first-child {
+  align-items: start;
+}
+.nitrox .time-loc:last-child {
+  align-items: end;
+}
+.nitrox .time-loc .point {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.nitrox .time-loc .time {
+  font-size: 0.9rem;
+}
+.nitrox .time-loc .difference {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: 0.5em;
+}
+.nitrox .time-loc .on-time {
+  color: rgb(0, 128, 0);
+}
+.nitrox .time-loc .slight-delay {
+  color: rgb(192, 160, 0);
+}
+.nitrox .time-loc .long-delay {
+  color: rgb(192, 90, 0);
+}
+.nitrox .time-loc .significant-delay {
+  color: rgb(96, 0, 0);
+}
+.nitrox .photos {
+  margin-top: 1em;
+}
+@media (min-width: 1024px) {
+  .nitrox {
+    /* The grid only wraps the Map and Timeline */
+  }
+  .nitrox .trip-content-grid {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 60px;
+    align-items: start; /* Crucial: Prevents map from stretching */
+  }
+  .nitrox .map-frame {
+    position: sticky;
+    top: 40px;
+    height: calc(100vh - 80px);
+    margin-bottom: 0;
+  }
+}
+.nitrox .hidden {
+  display: none;
+}
+.nitrox .footer-contents {
+  margin-top: 1rem;
 }
