@@ -3143,3 +3143,6 @@ table .valign-bottom {
 .nitrox .footer-contents {
   margin-top: 1rem;
 }
+.nitrox .not-visible {
+  visibility: hidden;
+}
