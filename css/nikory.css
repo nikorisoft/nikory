@@ -2915,6 +2915,11 @@ table .valign-bottom {
   text-align: right;
 }
 
+@media (prefers-color-scheme: dark) {
+  .invert-when-dark {
+    filter: invert(100%);
+  }
+}
 .nitrox {
   --line-color: var(--pico-secondary);
   --bg-color: var(--pico-secondary);
