@@ -1,0 +1,512 @@
+<!DOCTYPE html><html lang="en"><head>
+        <title>Tout devrait être gitable - nikory</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="../"><link rel="stylesheet" href="./css/nikory.css"><link rel="stylesheet" href="./css/asciidoc.css"><link rel="stylesheet" href="./css/a11y-light.css"><link rel="stylesheet" href="./css/maplibre-gl.css"><link rel="stylesheet" href="./css/lightgallery-bundle.min.css"><link rel="stylesheet" href="./css/fontawesome.min.css"><link rel="stylesheet" href="./css/solid.min.css"><link rel="stylesheet" href="./css/regular.min.css"><meta property="og:title" content="Tout devrait être gitable - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/48.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-48.jpg"><meta property="og:description" content="MMLという太古の技術をもってきて、なんとか音楽データをgit-friendlyにする試みです"></head>
+    <body>
+        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><a href="/"><strong>nikory</strong></a></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/48.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>Tout devrait être gitable</h1><p>Created at 2025/12/23 12:43:50<!----><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>このエントリは、<a href="https://adventar.org/calendars/12216">穏やかなぴょこりんクラスタ Advent Calendar 2025</a>のために書かれたものです。案の定ギリギリになってしまいましたが、今年最後のアドベントカレンダーの記事です。</p>
+</div>
+<div class="paragraph">
+<p>PCで音楽を作成するにはいろいろな方法が今はありますが、今回は古典的な楽譜などから音声データを作成する方法についてです。
+ひと昔前(25年～20年くらい前でしょうか)においては、MIDIシーケンサーと呼ばれるようなソフトウェアでMIDIファイル(SMF, Standard MIDI File)を作成して、それをハードウェアないしソフトウェアのMIDI音源(いまのWindows 11でも、Microsoft GS Wavetable SynthがOSに付属しているのでMIDIファイルを再生することができますね。Macは知りません)と呼ばれるもので再生することで、音声データにするという手順であったでしょう。</p>
+</div>
+<div class="paragraph">
+<p>現在は、MIDIシーケンサーはDAWソフトウェアとなり、MIDI音源はVSTプラグインとなりました。内部的にはMIDIの名残が残ってはいるものの、プラグインとのやりとりのメッセージの一部やエクスポートできるファイルの一部とかそういったところになってるかと思います。なお、ハードウェアにおいてはまだ残っているかと思いますが、今回はソフトウェアにフォーカスした話とします。</p>
+</div>
+<div class="paragraph">
+<p>他方、現在においては、特に多くの人に共有されるものは、gitのようなバージョン管理システムで管理しやすいことが望ましいとされています。これは、差分などがわかりやすいことによって、多人数によるコラボレーションなどが容易になることが一番のメリットでしょう。他方、先に挙げたSMFや、DAWソフトウェアのファイルは、基本的にバイナリであり後者にあってはプロプライエタリであり各ソフトウェア次第です。これはとてもgit管理できるといえるものではありません。(バイナリをgitにただつっこむことをgit管理とはここで言いません)</p>
+</div>
+<div class="paragraph">
+<p>ということで、今回の目標は、テキスト管理できる形で楽曲を作成し、モダンなVSTプラグインを使って再生してそれを音声ファイルにしようというものです。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_背景">背景</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>最初に背景となる技術についてまとめておきます。</p>
+</div>
+<div class="sect2">
+<h3 id="_vstホストとプラグイン">VSTホストとプラグイン</h3>
+<div class="paragraph">
+<p>まずはVST(Virtual Studio Technology)ですが、Steinberg社(CubaseというDAWで有名)が提唱した規格です。詳しくは、Steinberg社が公開しているSDKのドキュメントを見るのがよいと思いますが、先のMIDI音源のようなソフトウェア音源だけでなくオーディオのエフェクターというようなものをまとめて扱えるようにした規格という感じでしょうか。それぞれの音源やエフェクターといったものがVSTプラグインで提供され、DAWはそのホストとなってプラグインを呼び出して、それぞれの機能を利用するというものになります。</p>
+</div>
+<div class="paragraph">
+<p>この関係をGemini(Nano Banana Pro)に適当に書いて生成したものが下記です。文字の崩れを抑えるために英語にしています。</p>
+</div>
+<figure><img src="./resources/images/48-1.jpg" alt="48 1" class=""><figcaption>パッと見は良さそうな関係図</figcaption></figure>
+</div>
+<div class="sect2">
+<h3 id="_mml_music_macro_language">MML (Music Macro Language)</h3>
+<div class="paragraph">
+<p>次に楽曲ファイル自体をテキストで管理する方法を考えます。そこで、MIDIをさらに飛び越えてMMLというものが思い当たります。</p>
+</div>
+<div class="paragraph">
+<p>MMLは、本当の起源は正直よくわかっていないのですが、少なくとも40年ほど前の(N88-)BASICくらいの時代には存在していた表現です。当時は、MIDIといった規格は1981年制定なのでぎりぎり存在こそしていたようですが、当時のパソコンで音楽を扱うためには、パソコン上のチップを利用もしくは専用のボードを接続する必要があったため、そのあたりはまだまだ独自規格だったと思います。OPN(Yamaha YM2203)とかOPNA(Yamaha YM2608)とか懐かしいですね。それをBASICから操作する際には、MMLという言語を使った指示文を介して行う必要がありました。</p>
+</div>
+<div class="paragraph">
+<p>例としては、次のような形です。</p>
+</div>
+<pre><code><span class="hljs-symbol">T108O4C2DEF8G8A8B8</span>&gt;<span class="hljs-built_in">C2</span></code></pre>
+<div class="paragraph">
+<p>これは、下記の曲をMMLで表現したものです。(拍子などは表現されていません。)</p>
+</div>
+<figure><img src="./resources/images/48-2.svg" alt="48 2" class="invert-when-dark"><figcaption>MMLの内容を譜面にしたもの</figcaption></figure>
+<div class="paragraph">
+<p>だいたい見てもらえれば想像がつくかと思いますが、 <code>A</code> から <code>G</code> はその音(A=ラ, …​)に対応し、その次の数字は音価を表します。Tは続く数字でテンポを指定するもの、Oはオクターブを指定します。 <code>&gt;</code> や <code>&lt;</code> は、次の音からオクターブを上下させるものです。</p>
+</div>
+<div class="paragraph">
+<p>というのが基本ですが、シンプルであるがゆえに、規格化されていないので、やたら方言があるようです。 <code>&gt;</code> と <code>&lt;</code> は、意味が真逆な文法も存在するようで困ったものです。</p>
+</div>
+<div class="paragraph">
+<p>今回はスタンダードっぽい文法は取り入れつつも、好き勝手に拡張してみたものを今回のテキスト管理で用いる表現としようと思います。スペースとかがないので、git管理しにくいと思われるかもしれませんが、まあ、そこはうまく行で区切るなり、文字単位のdiff機能も最近充実しているのでそれを使うなりすれば問題ないのではないかと思われます。はい。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_設計">設計</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>以上を踏まえますと、今回は、太古の技術であるMMLと現在主流のVSTを悪魔合体させるという内容になります。</p>
+</div>
+<div class="paragraph">
+<p>今回は2つのパートからなる構成としました。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/nikorisoft/nxmml">MMLから中間表現に変換するプログラム (NxMML)</a></p>
+</li>
+<li>
+<p><a href="https://github.com/nikorisoft/vstout">その中間表現を実際にVSTプラグインに与えて音声ファイルを生成プログラム (VSTOut)</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>VSTプラグインの設定を生成するVSTConfigApp</p>
+</li>
+<li>
+<p>中間表現とプラグイン設定を受け取り音声ファイルを作るVSTSynthApp</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>の2つです。それぞれソースを公開していますが、時間的余裕がなくREADMEすらないひどいものです。</p>
+</div>
+<div class="paragraph">
+<p>中間表現としておとなしくSMFを使ったり、後者としてフリーである<a href="https://www.hermannseib.com/english/vsthost.htm">VSTHost</a>みたいなのを使うという手もありました。それだとおもしろくないというのもありますが、なるべく自動化・反復実行可能にしたかったのももう一つの条件としてありました。VSTプラグイン自体はオープンソースというわけにはなかなかいかないので、そこが一番のネックとしてのこってしまうものの、それ以外はある意味CIでも使えるようにしたいという気持ちによるものです。</p>
+</div>
+<div class="paragraph">
+<p>プラグインの設定は、プラグインごとにGUIを使って設定する必要があり、その設定ファイルも内部構造はプロプライエタリのプラグインごとなのでブラックボックスとして扱わざるを得ません。そこで、それを扱うプログラムを設定プログラムを分離し、設定した内容を保存したものを使いまわすことにしました。楽曲自体よりは設定の操作のほうが頻度が低いだろうということ、曲中での制御はやっぱり楽曲自体で行うべきことからのデザインチョイスです。いや、それ以外に選択肢がないだけでもありますが。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_実装">実装</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>実装ですが、NxMMLのほうはTypeScript、VSTOutのほうはC++で行いました。</p>
+</div>
+<div class="sect2">
+<h3 id="_nxmml">NxMML</h3>
+<div class="paragraph">
+<p>NxMMLのパーサージェネレータとしては、<a href="https://ohmjs.org/">Ohm</a>を利用しました。今回定義した文法は、<a href="https://github.com/nikorisoft/nxmml/blob/main/grammar/nxmml.ohm">こちらにあります</a>。いろいろ最適化されていないところではありますが、下記のような文法です。</p>
+</div>
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">文字列</th>
+<th class="tableblock halign-left valign-top">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>, <code>G</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">それぞれに相当する音。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>R</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">休符</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#</code>, <code>+</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音名に付加されると、半音上げを意味する</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音名に付加されると、半音下げを意味する。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[n]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音に付加されると、その音だけオクターブを指定する</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>, <code>2</code>, <code>4</code>, …​</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音や休符に付加されると、音価を表現する</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音価に付加されると、音価を1.5倍にする</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>!</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">音に付加されると、次の音は同じ時刻に置かれる</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">タイ。前後の音をつなぐ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>O</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">これ以降の音のオクターブを指定する (初期値: 4)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{(音名)}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">和音を表す。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>T</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">テンポを指定する。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>M</code> <em>n</em>/<em>d</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">拍子を指定する。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>K</code> (音名)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">キーを指定する。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>L</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">これ以降の音のデフォルトの音価を指定する (初期値: 4)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Q</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">これ以降の音の音価に対して発音する長さの割合を100分率で指定する (初期値: 90)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>V</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">これ以降の音のVelocityを指定する (0-127) (初期値: 100)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>P</code> <em>n</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">これ以降の音のPanを指定する (0-127) (初期値: 64)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">小節区切りを表す。現在の時刻が小節の先頭でない場合、警告を表示する。連続すると、次の小節にスキップする</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@</code> <em>name</em> (<em>params</em>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">拡張指示</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>拡張指示は、現在以下のものがあります。</p>
+</div>
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">指示名</th>
+<th class="tableblock halign-left valign-top">パラメータ</th>
+<th class="tableblock halign-left valign-top">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">defineTrack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID, name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>ID</em> という識別子を持ち、 <em>name</em> という名前の通常トラックを定義する</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">controlTrack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">以下の指示の対象を <em>ID</em> という制御トラックに切り替える。 <em>ID</em> は <code>tempo</code> と <code>measure</code> のみ指定可能。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">以下の指示の対象を <em>ID</em> という通常トラックに切り替える</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">このファイルにおける、全音符あたりのtick数(小節未満の時間単位)を <code>unit</code> に変更する。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">measure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">measure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">以下の音や指示を指定された小節番号 <em>measure</em> から開始する。 <em>measure</em> は0オリジンである。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">measure, tick</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">次の音のみ指定された <em>measure</em> (小節) 、<em>tick</em> に置く。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>ということで、RavelのBoleroの冒頭のフルートとヴィオラのパートだけ書いてみたのが、リポジトリのサンプルにもありますが、下記のような感じです。</p>
+</div>
+<pre><code><span class="hljs-comment">#----------------</span>
+<span class="hljs-meta">@defineTrack(<span class="hljs-params">Flute1, <span class="hljs-string">"Flute 1"</span></span>)</span>
+<span class="hljs-meta">@defineTrack(<span class="hljs-params">Viola, <span class="hljs-string">"Viola"</span></span>)</span>
+
+<span class="hljs-meta">@timeUnit(<span class="hljs-params"><span class="hljs-number">9600</span></span>)</span>
+<span class="hljs-comment">#------------------</span>
+
+<span class="hljs-meta">@controlTrack(<span class="hljs-params">tempo</span>)</span>
+T72
+
+<span class="hljs-meta">@controlTrack(<span class="hljs-params">measure</span>)</span>
+M3/<span class="hljs-number">4</span>
+
+<span class="hljs-comment">#------------------</span>
+<span class="hljs-meta">@track(<span class="hljs-params">Flute1</span>)</span>
+
+<span class="hljs-meta">@measure(<span class="hljs-params"><span class="hljs-number">4</span></span>)</span>
+O5 Q100 C4.&lt;B16&gt;C16D16C16&lt;B16A16 | Q90 &gt;C8 Q100C16&lt;A16&gt;C4.&lt;B16&gt;C16 | A16G16E16F16G2 | Q90 &amp;G16
+
+<span class="hljs-comment">#------------------</span>
+<span class="hljs-meta">@track(<span class="hljs-params">Viola</span>)</span>
+
+O3
+<span class="hljs-meta">@abs(<span class="hljs-params"><span class="hljs-number">0</span>, -<span class="hljs-number">200</span></span>)</span>
+F<span class="hljs-comment">#[-1]64!</span>
+
+<span class="hljs-meta">@measure(<span class="hljs-params"><span class="hljs-number">0</span></span>)</span>
+O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 |
+
+O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre>
+<div class="paragraph">
+<p>ここから、それぞれのトラックに対して、実際のタイミングにどの音をどの長さで出すかを表した中間表現を出力するのが、<code>nxmml</code> プログラムとなります。(ここのロジックはだいぶ最適化されていないので、長大なものを入れるとどんなことになるかは想像がついていません)</p>
+</div>
+<div class="paragraph">
+<p>中間表現はYAMLで、抜粋すると下記のような形です。</p>
+</div>
+<pre><code><span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">Flute1</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">Flute</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">notes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">time:</span> <span class="hljs-number">960000</span>
+      <span class="hljs-attr">duration:</span> <span class="hljs-number">118800</span>
+      <span class="hljs-attr">note:</span> <span class="hljs-number">72</span>
+      <span class="hljs-attr">velocity:</span> <span class="hljs-number">100</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">time:</span> <span class="hljs-number">1080000</span>
+      <span class="hljs-attr">duration:</span> <span class="hljs-number">19800</span>
+      <span class="hljs-attr">note:</span> <span class="hljs-number">71</span>
+      <span class="hljs-attr">velocity:</span> <span class="hljs-number">100</span></code></pre>
+<div class="paragraph">
+<p>SMFと比較するとだいぶ富豪的な表現(バイト数的に)ですね。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vstout">VSTOut</h3>
+<div class="paragraph">
+<p>VSTOutのほうは、SteinbergがVST SDKを出していることもあり、それを直接利用することも考えたのですが、より簡単な<a href="https://juce.com/">JUCE</a>を使うことにしました。</p>
+</div>
+<div class="paragraph">
+<p>久しぶりのC++で、しかもスマートポインタの類も初心者なので、どっかで盛大にメモリリークしてそうな気もするのですがそこはご容赦ください。いや、許されるような簡単な問題ではないと思いますが。</p>
+</div>
+<div class="paragraph">
+<p>ConfigAppのほうは正直JUCEのサンプルとほぼ同様なので、SynthAppのほうを見ていきます。
+といっても、こちらもシンプルで、</p>
+</div>
+<pre><code><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">initPlugin</span><span class="hljs-params">(AudioPluginFormatManager &amp;manager, Instance &amp;instance, Config &amp;config)</span> </span>{
+<span class="hljs-comment">//...</span>
+    instance.processor =
+        manager.<span class="hljs-built_in">createPluginInstance</span>(*found[<span class="hljs-number">0</span>], config.output.samplingRate, DEFAULT_SAMPLE_SIZE, error);
+<span class="hljs-comment">//...</span>
+    <span class="hljs-function">ifstream <span class="hljs-title">stateFile</span><span class="hljs-params">(instance.state, ios::binary)</span></span>;
+<span class="hljs-comment">//...</span>
+    <span class="hljs-function">shared_ptr&lt;<span class="hljs-type">char</span>[]&gt; <span class="hljs-title">data</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-type">char</span>[size])</span></span>;
+    stateFile.<span class="hljs-built_in">read</span>(data.<span class="hljs-built_in">get</span>(), size);
+    stateFile.<span class="hljs-built_in">close</span>();
+
+    instance.processor-&gt;<span class="hljs-built_in">setStateInformation</span>(data.<span class="hljs-built_in">get</span>(), <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(size));
+<span class="hljs-comment">//...</span>
+}</code></pre>
+<div class="paragraph">
+<p>JUCEの機能でプラグインを読み込み、あらかじめConfigAppのほうで作っておいた設定ファイルをステート情報として与えるだけです。</p>
+</div>
+<div class="paragraph">
+<p>そして、もろもろの初期化を行い、あとはループで一定時間ずつ <code>MidiBuffer</code> に発音する音と時刻の情報をプラグインに与えて再生し、`AudioBuffer`に出力される音声データをWAVファイルとして保存していくだけです。</p>
+</div>
+<pre><code>    <span class="hljs-function">juce::AudioBuffer&lt;<span class="hljs-type">float</span>&gt; <span class="hljs-title">buffer</span><span class="hljs-params">(std::max(numInputChannels, numOutputChannels), blockSize)</span></span>;
+    juce::MidiBuffer midiBuffer;
+<span class="hljs-comment">//...</span>
+    <span class="hljs-keyword">auto</span> eventIter = instance.events.<span class="hljs-built_in">begin</span>();
+    <span class="hljs-keyword">while</span> (samplesRendered &lt; totalSamplesToRender) {
+        midiBuffer.<span class="hljs-built_in">clear</span>();
+        buffer.<span class="hljs-built_in">clear</span>();
+
+        <span class="hljs-type">int</span> numSamplesThisBlock = std::<span class="hljs-built_in">min</span>(blockSize, totalSamplesToRender - samplesRendered);
+
+        <span class="hljs-keyword">while</span> (eventIter != instance.events.<span class="hljs-built_in">end</span>()) {
+            <span class="hljs-keyword">auto</span> event = *eventIter;
+            <span class="hljs-type">long</span> time = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">long</span>&gt;(event.time * sampleRate / config.timebase);
+
+            <span class="hljs-keyword">if</span> (samplesRendered &lt;= time &amp;&amp; (samplesRendered + numSamplesThisBlock) &gt; time) {
+                <span class="hljs-type">int</span> offset = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(time - samplesRendered);
+                <span class="hljs-keyword">if</span> (event.type == MIDI_NOTE_ON) {
+                    midiBuffer.<span class="hljs-built_in">addEvent</span>(
+                        MidiMessage::<span class="hljs-built_in">noteOn</span>(event.channel, event.note, <span class="hljs-built_in">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
+                } <span class="hljs-keyword">else</span> {
+                    midiBuffer.<span class="hljs-built_in">addEvent</span>(
+                        MidiMessage::<span class="hljs-built_in">noteOff</span>(event.channel, event.note, <span class="hljs-built_in">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
+                }
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">break</span>;
+            }
+            eventIter++;
+        }
+
+        plugin-&gt;<span class="hljs-built_in">processBlock</span>(buffer, midiBuffer);
+        writer-&gt;<span class="hljs-built_in">writeFromAudioSampleBuffer</span>(buffer, <span class="hljs-number">0</span>, numSamplesThisBlock);
+
+        samplesRendered += numSamplesThisBlock;
+    }
+<span class="hljs-comment">//...</span></code></pre>
+<div class="paragraph">
+<p>基本はこれで完了です。</p>
+</div>
+<div class="paragraph">
+<p>SynthAppに与えるYAMLは、以下のような設定ファイルとなります。</p>
+</div>
+<pre><code><span class="hljs-attr">config:</span>
+  <span class="hljs-attr">timebase:</span> <span class="hljs-number">96000</span>
+  <span class="hljs-attr">preroll:</span> <span class="hljs-number">24000</span>
+  <span class="hljs-attr">postroll:</span> <span class="hljs-number">96000</span>
+  <span class="hljs-attr">output:</span>
+    <span class="hljs-attr">samplingRate:</span> <span class="hljs-number">48000</span>
+    <span class="hljs-attr">bits:</span> <span class="hljs-number">16</span>
+
+<span class="hljs-attr">instances:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">"C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3"</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">"bbc.flute.bin"</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">flute1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">"C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3"</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">"bbc.viola.bin"</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">viola</span>
+
+<span class="hljs-attr">map:</span>
+  <span class="hljs-attr">Flute1:</span>
+    <span class="hljs-attr">instance:</span> <span class="hljs-string">flute1</span>
+    <span class="hljs-attr">channel:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">Viola:</span>
+    <span class="hljs-attr">instance:</span> <span class="hljs-string">viola</span>
+    <span class="hljs-attr">channel:</span> <span class="hljs-number">1</span>
+
+<span class="hljs-attr">tracks:</span> <span class="hljs-string">./bolero.tracks.yaml</span></code></pre>
+<div class="paragraph">
+<p><code>config</code> でサンプリングレートや前後のマージンとなる時間とか諸々の設定を行います。次の <code>instances</code> では、プラグインのインスタンスの設定をしています。それぞれプラグインのパスと、ConfigAppで作ったステートファイル、それからIDを指定しています。そして、 <code>map</code> として、トラックとインスタンス・チャネルの関係を指定します。(なお、今回の例は、マルチティンバーのプラグインではないので、トラックごとにインスタンスを作る必要がありました)。最後に <code>tracks</code> として先ほどNxMMLで出力したYAMLファイルを指定するという感じです。</p>
+</div>
+<div class="paragraph">
+<p>以上により出力された音声ファイルは、トラックごとの音声なので、ffmpegでもなんでも使ってミックスしてあげれば、作りたかったものが完成します。</p>
+</div>
+<div class="audioblock">
+<div class="title">生成した音声ファイル (Flute + Viola)</div>
+<div class="content">
+<audio src="./resources/samples/48-3.ogg" controls="">
+Your browser does not support the audio tag.
+</audio>
+</div>
+</div>
+<div class="paragraph">
+<p>これで、作りたかったものの基本機能を実現することができました！</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_未解決の問題">未解決の問題</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_初期化問題">初期化問題</h3>
+<div class="paragraph">
+<p>・・・なのですが、このプログラムには重大な問題があります。</p>
+</div>
+<div class="paragraph">
+<p>注意深く見てもらえればわかるかもしれませんが(実行すれば一目瞭然ですが)、</p>
+</div>
+<pre><code>    std::cout &lt;&lt; <span class="hljs-string">"Warming up plugin..."</span> &lt;&lt; std::endl;
+    Thread::<span class="hljs-built_in">sleep</span>(<span class="hljs-number">30'000</span>);</code></pre>
+<div class="paragraph">
+<p>という、なんだこれはというコードがあります。そう。このプログラムはVSTプラグインをロードした後30秒間停止します。</p>
+</div>
+<div class="paragraph">
+<p>これはVSTプラグインの性質なのですが、基本的にリアルタイム処理を前提としたつくりとなっています。そのため、プラグイン側の準備ができていなくても処理を停止するということはしません。できていない場合には、何の音も出さずに済ませてしまいます。
+そして、サンプリングベースのVSTの音源は、ロードしたときにディスクからサンプリングデータを読み込みます。そのデータは、人の音色であっても数十MBからGB単位に及ぶこともあります。そんなのは、SSDであっても数秒かかっても不思議ではありません。</p>
+</div>
+<div class="paragraph">
+<p>つまり、ここでウェイトを入れておかないと、初期化のあとにすぐ演奏しようとして無音のWAVファイルが生成されるという悲しい思いをすることになります。(実際、作成時はしばらく悩みました)。</p>
+</div>
+<div class="paragraph">
+<p>そして、自分の調べた限り、この読み込みが完了したかどうかはホストアプリケーションから知るすべはなさそうです。そういうAPIがVSTのSDKレベルでも定義されてないように見えます。</p>
+</div>
+<div class="paragraph">
+<p>いちおう気休め程度に</p>
+</div>
+<pre><code>plugin-&gt;<span class="hljs-built_in">setNonRealtime</span>(<span class="hljs-literal">true</span>);</code></pre>
+<div class="paragraph">
+<p>というコードを入れてありますが、何にも機能していないように見えます。</p>
+</div>
+<div class="paragraph">
+<p>毎回WAVを作るたびにVST初期化をしているやり方は結局よくないということで、サーバーというかデーモン型にして、プラグインの読み込みだけはあらかじめやっておき、変更がある場合に再初期化するというような設計にする必要がありそうです。実際、DAWはそういう動きをしているので、やむを得ないところですね。</p>
+</div>
+<div class="paragraph">
+<p>プロプライエタリ(もしくはレガシー)が自動化させてくれないという悲しい問題がここにあります。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_プラグインごとの挙動の違い">プラグインごとの挙動の違い</h3>
+<div class="paragraph">
+<p>これもまたどうにもならないのですが、VSTプラグインごとに微妙な挙動の違いがあります。上記の初期化にかかる時間はもちろんまちまちですし、MidiBufferにまったく同時刻のイベントを複数追加するとうまく処理してくれないものとかもありました (どちらかのイベントの時刻を+1すると正常に動くものとか)。今回は、中間ファイルを手でいじることで回避したりもしましたが、これもプログラム側で対処しておくべきことでしょう。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_今後の機能">今後の機能</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>多分真面目に今後曲を書こうと思うと、もっといろいろな表現(グリッサンドどうするのとか、音ごとに強弱や長さを微妙に変えるとか)ができる必要があると思うので、そういう際にはマクロのようなものが使えると便利だと思うので、プリプロセッサのようなものを導入する必要がありそうです。そういったものをテキストベースで作れれば再利用も容易ですし、本来の目的にも叶うと思うのですよね。</p>
+</div>
+<div class="paragraph">
+<p>あとは、MMLの文法で定義したものの、実は実装されていない機能もあるので、それはちゃんとやりたいところです。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_まとめ">まとめ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>今回の記事は、MML → VST Pluginという時間を越えた何かを実現しようとしたら、そもそも設計思想時点で無理筋だったのではないかという問題にあたってしまったというものでした。まあ、デーモン化するなりなんなりでなんとか回避できそうな問題なので、そこまでの問題ではないですが、ちょっときれいではないのが残念なところです。</p>
+</div>
+<div class="paragraph">
+<p>なんにせよ、久しぶりにC++を書いたり、ブラックボックスだったVSTの仕様を垣間見たりすることができたのはよかったと思います。</p>
+</div>
+</div>
+</div></div></div></main><footer><div>nikory - Ver. 1.0</div><div>Copyright © 2018-2025<a href="https://github.com/nikorisoft">nikorisoft</a></div></footer></div></div>
+    
+
+</body></html>
