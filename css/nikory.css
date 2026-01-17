@@ -2875,6 +2875,10 @@ p.tableblock {
   font-size: 0.9rem;
 }
 
+dt {
+  font-weight: bold;
+}
+
 table .halign-left {
   text-align: left;
 }
