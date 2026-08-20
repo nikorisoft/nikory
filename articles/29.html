@@ -1,13 +1,44 @@
-<!DOCTYPE html><html lang="en"><head>
-        <title>動画作りのためのプレリュード - nikory</title>
-        <meta charset="utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="../"><link rel="stylesheet" href="./css/nikory.css"><link rel="stylesheet" href="./css/a11y-light.css"><link rel="stylesheet" href="./css/29.css"><meta property="og:title" content="動画作りのためのプレリュード - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/29.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-29.png"><meta property="og:description" content="ブラウザをレンダリングエンジンとしたコードによる動画づくりを実現するための車輪の再発明の入り口"></head>
-    <body>
-        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><a href="/"><strong>nikory</strong></a></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/49.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>動画作りのためのプレリュード</h1><p>Created at 2023/12/11 0:00:00<span>and last updated at 2023/12/17 21:58:18</span><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/8863">サステナブルなぴょこりんクラスタ Advent Calendar 2023</a>のために書かれたものです。</p>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>動画作りのためのプレリュード - nikory</title>
+    <base href="..">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="./css/a11y-light.css">
+    <link rel="stylesheet" href="./css/29.css">
+    <meta property="og:description" content="ブラウザをレンダリングエンジンとしたコードによる動画づくりを実現するための車輪の再発明の入り口">
+    <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-29.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="nikory (nikorisoft blog)">
+    <meta property="og:title" content="動画作りのためのプレリュード - nikory">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nikori.jp/nikory/articles/29.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container" id="root">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/"><strong>nikory</strong></a></li>
+          </ul>
+          <ul>
+            <li><a href="../index.html">Articles Index</a></li>
+            <li><a href="./articles/49.html">Latest Article</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <hgroup>
+          <h1>動画作りのためのプレリュード</h1>
+          <p>Created on 2023/12/11<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
+        </hgroup>
+      </main>
+      <div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/8863">サステナブルなぴょこりんクラスタ Advent Calendar 2023</a>のために書かれたものです。</p>
 <p><a href="./articles/28.html">前回のエントリ</a>で開発目標が達成できなかったということを書きましたが、今回はもともと作りたいと思いつつ作っていなかったものをなんとか12月に作ろうとしていることを書きたいと思います。これもギリギリに書いている状態なので、ものすごく自転車操業感があります。仕事と同じような感じになってしまって、よろしくないですね。</p>
 <h2><span>動機</span></h2><p>さて、今回作るツールは、動画を作るためのツールです。<a href="./articles/26.html">こちら</a>で書いたようにGoPro HEROを昨年新しいのを買ったので、有効活用をしたいなあと思っていたことによります。まあ有効活用するには、編集して動画を作るくらいしかないわけなのですが、動画を編集するソフトといえば、マウスでカチカチしたりするイメージが大きく、ちゃんとテキストというかスクリプト的に行いたいなあというところがあります。</p>
 <p>これは、やっぱりIaC(Infrastructure as Code)とかPaC(Policy as Code)とかいわれるように、なんでもコードにするのがメンテナンス性とか再現性とか再利用性を高めるうえでも大切なんじゃないかという世の中の潮流にあっているのではないでしょうか。</p>
@@ -19,12 +50,10 @@
 <div id="animation-demo">
    <div id="animation-ball"></div>
    <div id="animation-text">Hello, world</div>
-</div>
-
-<p>こんなのをcssだけで書けるわけですから、これを使わない手はありません。ということで、今回の方向性は、ブラウザをレンダリングエンジンとして利用した動画作成ツールということになります。</p>
+</div><p>こんなのをcssだけで書けるわけですから、これを使わない手はありません。ということで、今回の方向性は、ブラウザをレンダリングエンジンとして利用した動画作成ツールということになります。</p>
 <p>・・・で、さらに調べると、<a href="https://creatomate.com/how-to/create-video-in-the-browser">Creatomate</a>なんてものもありました。やっぱり世の中考えることは同じなんですねえ。</p>
 <p>まあ有料のサービスっぽいので、とりあえず無視して車輪の再発明をすることにしましょう。(結局そんなオチ)</p>
-<h2><span>おおまかな設計</span></h2><p></p><figure><img src="./resources/images/29-1.svg" alt="全体の設計概要"><figcaption>全体の設計概要</figcaption></figure><p></p>
+<h2><span>おおまかな設計</span></h2><p><figure><img src="./resources/images/29-1.svg" alt="全体の設計概要"><figcaption>全体の設計概要</figcaption></figure></p>
 <p>もうPowerpointの図という投げやりな感じになってしまってますが(これも本当はちゃんとスクリプトで図を描けという話なのですが)、大まかな設計はこんな感じです。言語は書いていませんがサーバー側はTypeScript、ブラウザ側はここでViteとかかませるとわけがわからなくなりそうなので、JavaScriptそのままです。JavaScriptをそのまま書くのは、現代においてはかなりの蛮行と思われますが、今回の目的では複雑な処理を書くことはほとんどないでしょうから、とりあえずよしとします。</p>
 <p>ブラウザを動かすのは、<a href="https://www.selenium.dev/">Selenium</a>とか<a href="https://pptr.dev/">Puppeteer</a>が有名ですが、最近流行ってきている気がする<a href="https://playwright.dev/">Playwright</a>を使うことにしました。いざとなったらブラウザをChromiumからWebkitとかFirefoxに変えることができますしね。する予定はないですが。</p>
 <p>右上のプロジェクトとしているのが、肝心の動画のソースとなるものです。全体のメタ情報やタイムライン情報を含むyamlファイルと、実際に描画するhtmlファイルなどからなります。htmlファイルは、シーンごとなど、複数作ることを想定しています。タイムライン情報に従って、シーンごとにそれぞれのファイルを開いて、フレーム撮りをスクリーンショットによって行っていき、最終的に一つの動画としてエンコードする形となります。</p>
@@ -41,7 +70,11 @@
 <h2><span>次のステップ</span></h2><p>今回は単純にCSSアニメーションを録画するだけでしたが、本来は動画編集なので、既存の動画を組み合わせたりするのがやりたいことです。今回のどこかのエントリでそこまでいったものを紹介したいところです。</p>
 <p>本当にこれができたかどうかは、<a href="./articles/33.html">12月23日</a>まで読んだ各位にあっては既にご存じのことでしょう・・・というか、たったこれだけの内容でも結構妥協したポイントがいろいろあるので、推して知るべしではありますが・・。</p>
 <!--- nikory-metadata: { "image": "thumbnail-29.png", "description": "ブラウザをレンダリングエンジンとしたコードによる動画づくりを実現するための車輪の再発明の入り口", "timestamp": "2023-12-11T00:00:00+09:00", "stylesheets": ["29.css"] } -->
-</div></div></main><footer><div>nikory - Ver. 1.0</div><div>Copyright © 2018-2025<a href="https://github.com/nikorisoft">nikorisoft</a></div></footer></div></div>
-    
-
-</body></html>
+</div>
+      <footer>
+        <div>nikory - Ver. 1.1</div>
+        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
+      </footer>
+    </div>
+  </body>
+</html>

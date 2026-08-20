@@ -1,13 +1,44 @@
-<!DOCTYPE html><html lang="en"><head>
-        <title>Tout devrait être gitable - nikory</title>
-        <meta charset="utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="../"><link rel="stylesheet" href="./css/nikory.css"><link rel="stylesheet" href="./css/asciidoc.css"><link rel="stylesheet" href="./css/a11y-light.css"><link rel="stylesheet" href="./css/maplibre-gl.css"><link rel="stylesheet" href="./css/lightgallery-bundle.min.css"><link rel="stylesheet" href="./css/fontawesome.min.css"><link rel="stylesheet" href="./css/solid.min.css"><link rel="stylesheet" href="./css/regular.min.css"><meta property="og:title" content="Tout devrait être gitable - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/48.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-48.jpg"><meta property="og:description" content="MMLという太古の技術をもってきて、なんとか音楽データをgit-friendlyにする試みです"></head>
-    <body>
-        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><a href="/"><strong>nikory</strong></a></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/49.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>Tout devrait être gitable</h1><p>Created at 2025/12/23 12:39:33<!----><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><div id="preamble">
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Tout devrait être gitable - nikory</title>
+    <base href="..">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="./css/a11y-light.css">
+    <link rel="stylesheet" href="./css/asciidoc.css">
+    <meta property="og:description" content="MMLという太古の技術をもってきて、なんとか音楽データをgit-friendlyにする試みです">
+    <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-48.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="nikory (nikorisoft blog)">
+    <meta property="og:title" content="Tout devrait être gitable - nikory">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nikori.jp/nikory/articles/48.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container" id="root">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/"><strong>nikory</strong></a></li>
+          </ul>
+          <ul>
+            <li><a href="../index.html">Articles Index</a></li>
+            <li><a href="./articles/49.html">Latest Article</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <hgroup>
+          <h1>Tout devrait être gitable</h1>
+          <p>Created on 2025/12/23<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
+        </hgroup>
+      </main>
+      <div class="contents"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>このエントリは、<a href="https://adventar.org/calendars/12216">穏やかなぴょこりんクラスタ Advent Calendar 2025</a>のために書かれたものです。案の定ギリギリになってしまいましたが、今年最後のアドベントカレンダーの記事です。</p>
@@ -54,13 +85,13 @@
 <div class="paragraph">
 <p>例としては、次のような形です。</p>
 </div>
-<pre><code><span class="hljs-symbol">T108O4C2DEF8G8A8B8</span>&gt;<span class="hljs-built_in">C2</span></code></pre>
+<pre><code><span class="hljs-title class_">T108O4C2DEF8G8A8B8</span>&gt;<span class="hljs-title class_">C2</span></code></pre>
 <div class="paragraph">
 <p>これは、下記の曲をMMLで表現したものです。(拍子などは表現されていません。)</p>
 </div>
 <figure><img src="./resources/images/48-2.svg" alt="48 2" class="invert-when-dark"><figcaption>MMLの内容を譜面にしたもの</figcaption></figure>
 <div class="paragraph">
-<p>だいたい見てもらえれば想像がつくかと思いますが、 <code>A</code> から <code>G</code> はその音(A=ラ, …​)に対応し、その次の数字は音価を表します。Tは続く数字でテンポを指定するもの、Oはオクターブを指定します。 <code>&gt;</code> や <code>&lt;</code> は、次の音からオクターブを上下させるものです。</p>
+<p>だいたい見てもらえれば想像がつくかと思いますが、 <code>A</code> から <code>G</code> はその音(A=ラ, &#8230;&#8203;)に対応し、その次の数字は音価を表します。Tは続く数字でテンポを指定するもの、Oはオクターブを指定します。 <code>&gt;</code> や <code>&lt;</code> は、次の音からオクターブを上下させるものです。</p>
 </div>
 <div class="paragraph">
 <p>というのが基本ですが、シンプルであるがゆえに、規格化されていないので、やたら方言があるようです。 <code>&gt;</code> と <code>&lt;</code> は、意味が真逆な文法も存在するようで困ったものです。</p>
@@ -124,8 +155,8 @@
 </div>
 <table class="tableblock frame-none grid-rows stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col width="25%">
+<col width="75%">
 </colgroup>
 <thead>
 <tr>
@@ -155,7 +186,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">音に付加されると、その音だけオクターブを指定する</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>, <code>2</code>, <code>4</code>, …​</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>, <code>2</code>, <code>4</code>, &#8230;&#8203;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">音や休符に付加されると、音価を表現する</p></td>
 </tr>
 <tr>
@@ -221,9 +252,9 @@
 </div>
 <table class="tableblock frame-none grid-rows stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 50%;">
+<col width="25%">
+<col width="25%">
+<col width="50%">
 </colgroup>
 <thead>
 <tr>
@@ -268,36 +299,36 @@
 <div class="paragraph">
 <p>ということで、RavelのBoleroの冒頭のフルートとヴィオラのパートだけ書いてみたのが、リポジトリのサンプルにもありますが、下記のような感じです。</p>
 </div>
-<pre><code><span class="hljs-comment">#----------------</span>
-<span class="hljs-meta">@defineTrack(<span class="hljs-params">Flute1, <span class="hljs-string">"Flute 1"</span></span>)</span>
-<span class="hljs-meta">@defineTrack(<span class="hljs-params">Viola, <span class="hljs-string">"Viola"</span></span>)</span>
+<pre><code>#----------------
+<span class="hljs-meta">@defineTrack</span>(<span class="hljs-title class_">Flute1</span>, <span class="hljs-string">&quot;Flute 1&quot;</span>)
+<span class="hljs-meta">@defineTrack</span>(<span class="hljs-title class_">Viola</span>, <span class="hljs-string">&quot;Viola&quot;</span>)
 
-<span class="hljs-meta">@timeUnit(<span class="hljs-params"><span class="hljs-number">9600</span></span>)</span>
-<span class="hljs-comment">#------------------</span>
+<span class="hljs-meta">@timeUnit</span>(<span class="hljs-number">9600</span>)
+#------------------
 
-<span class="hljs-meta">@controlTrack(<span class="hljs-params">tempo</span>)</span>
-T72
+<span class="hljs-meta">@controlTrack</span>(tempo)
+<span class="hljs-title class_">T72</span>
 
-<span class="hljs-meta">@controlTrack(<span class="hljs-params">measure</span>)</span>
-M3/<span class="hljs-number">4</span>
+<span class="hljs-meta">@controlTrack</span>(measure)
+<span class="hljs-title class_">M3</span>/<span class="hljs-number">4</span>
 
-<span class="hljs-comment">#------------------</span>
-<span class="hljs-meta">@track(<span class="hljs-params">Flute1</span>)</span>
+#------------------
+<span class="hljs-meta">@track</span>(<span class="hljs-title class_">Flute1</span>)
 
-<span class="hljs-meta">@measure(<span class="hljs-params"><span class="hljs-number">4</span></span>)</span>
-O5 Q100 C4.&lt;B16&gt;C16D16C16&lt;B16A16 | Q90 &gt;C8 Q100C16&lt;A16&gt;C4.&lt;B16&gt;C16 | A16G16E16F16G2 | Q90 &amp;G16
+<span class="hljs-meta">@measure</span>(<span class="hljs-number">4</span>)
+<span class="hljs-title class_">O5</span> <span class="hljs-title class_">Q100</span> <span class="hljs-title class_">C4</span>.&lt;<span class="hljs-title class_">B16</span>&gt;<span class="hljs-title class_">C16D16C16</span>&lt;<span class="hljs-title class_">B16A16</span> | <span class="hljs-title class_">Q90</span> &gt;<span class="hljs-title class_">C8</span> <span class="hljs-title class_">Q100C16</span>&lt;<span class="hljs-title class_">A16</span>&gt;<span class="hljs-title class_">C4</span>.&lt;<span class="hljs-title class_">B16</span>&gt;<span class="hljs-title class_">C16</span> | <span class="hljs-title class_">A16G16E16F16G2</span> | <span class="hljs-title class_">Q90</span> &amp;<span class="hljs-title class_">G16</span>
 
-<span class="hljs-comment">#------------------</span>
-<span class="hljs-meta">@track(<span class="hljs-params">Viola</span>)</span>
+#------------------
+<span class="hljs-meta">@track</span>(<span class="hljs-title class_">Viola</span>)
 
-O3
-<span class="hljs-meta">@abs(<span class="hljs-params"><span class="hljs-number">0</span>, -<span class="hljs-number">200</span></span>)</span>
-F<span class="hljs-comment">#[-1]64!</span>
+<span class="hljs-title class_">O3</span>
+<span class="hljs-meta">@abs</span>(<span class="hljs-number">0</span>, -<span class="hljs-number">200</span>)
+F#[-<span class="hljs-number">1</span>]<span class="hljs-number">64</span>!
 
-<span class="hljs-meta">@measure(<span class="hljs-params"><span class="hljs-number">0</span></span>)</span>
-O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 |
+<span class="hljs-meta">@measure</span>(<span class="hljs-number">0</span>)
+<span class="hljs-title class_">O3</span> <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4 |
 
-O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre>
+<span class="hljs-title class_">O3</span> <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4 | <span class="hljs-title class_">G4</span> {G&gt;G}4R4</code></pre>
 <div class="paragraph">
 <p>ここから、それぞれのトラックに対して、実際のタイミングにどの音をどの長さで出すかを表した中間表現を出力するのが、<code>nxmml</code> プログラムとなります。(ここのロジックはだいぶ最適化されていないので、長大なものを入れるとどんなことになるかは想像がついていません)</p>
 </div>
@@ -342,7 +373,7 @@ O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre
     stateFile.<span class="hljs-built_in">read</span>(data.<span class="hljs-built_in">get</span>(), size);
     stateFile.<span class="hljs-built_in">close</span>();
 
-    instance.processor-&gt;<span class="hljs-built_in">setStateInformation</span>(data.<span class="hljs-built_in">get</span>(), <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(size));
+    instance.processor-&gt;<span class="hljs-built_in">setStateInformation</span>(data.<span class="hljs-built_in">get</span>(), <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(size));
 <span class="hljs-comment">//...</span>
 }</code></pre>
 <div class="paragraph">
@@ -363,16 +394,16 @@ O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre
 
         <span class="hljs-keyword">while</span> (eventIter != instance.events.<span class="hljs-built_in">end</span>()) {
             <span class="hljs-keyword">auto</span> event = *eventIter;
-            <span class="hljs-type">long</span> time = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">long</span>&gt;(event.time * sampleRate / config.timebase);
+            <span class="hljs-type">long</span> time = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-type">long</span>&gt;(event.time * sampleRate / config.timebase);
 
             <span class="hljs-keyword">if</span> (samplesRendered &lt;= time &amp;&amp; (samplesRendered + numSamplesThisBlock) &gt; time) {
-                <span class="hljs-type">int</span> offset = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(time - samplesRendered);
+                <span class="hljs-type">int</span> offset = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(time - samplesRendered);
                 <span class="hljs-keyword">if</span> (event.type == MIDI_NOTE_ON) {
                     midiBuffer.<span class="hljs-built_in">addEvent</span>(
-                        MidiMessage::<span class="hljs-built_in">noteOn</span>(event.channel, event.note, <span class="hljs-built_in">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
+                        MidiMessage::noteOn(event.channel, event.note, <span class="hljs-keyword">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
                 } <span class="hljs-keyword">else</span> {
                     midiBuffer.<span class="hljs-built_in">addEvent</span>(
-                        MidiMessage::<span class="hljs-built_in">noteOff</span>(event.channel, event.note, <span class="hljs-built_in">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
+                        MidiMessage::noteOff(event.channel, event.note, <span class="hljs-keyword">static_cast</span>&lt;uint8&gt;(event.velocity)), offset);
                 }
             } <span class="hljs-keyword">else</span> {
                 <span class="hljs-keyword">break</span>;
@@ -401,11 +432,11 @@ O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre
     <span class="hljs-attr">bits:</span> <span class="hljs-number">16</span>
 
 <span class="hljs-attr">instances:</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">"C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3"</span>
-    <span class="hljs-attr">state:</span> <span class="hljs-string">"bbc.flute.bin"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">&quot;C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3&quot;</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">&quot;bbc.flute.bin&quot;</span>
     <span class="hljs-attr">id:</span> <span class="hljs-string">flute1</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">"C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3"</span>
-    <span class="hljs-attr">state:</span> <span class="hljs-string">"bbc.viola.bin"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">plugin:</span> <span class="hljs-string">&quot;C:\\Program Files\\Common Files\\VST3\\BBC Symphony Orchestra (64 Bit).vst3&quot;</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">&quot;bbc.viola.bin&quot;</span>
     <span class="hljs-attr">id:</span> <span class="hljs-string">viola</span>
 
 <span class="hljs-attr">map:</span>
@@ -426,7 +457,7 @@ O3 G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4 | G4 {G&gt;G}4R4</code></pre
 <div class="audioblock">
 <div class="title">生成した音声ファイル (Flute + Viola)</div>
 <div class="content">
-<audio src="./resources/samples/48-3.ogg" controls="">
+<audio src="./resources/samples/48-3.ogg" controls>
 Your browser does not support the audio tag.
 </audio>
 </div>
@@ -448,8 +479,8 @@ Your browser does not support the audio tag.
 <div class="paragraph">
 <p>注意深く見てもらえればわかるかもしれませんが(実行すれば一目瞭然ですが)、</p>
 </div>
-<pre><code>    std::cout &lt;&lt; <span class="hljs-string">"Warming up plugin..."</span> &lt;&lt; std::endl;
-    Thread::<span class="hljs-built_in">sleep</span>(<span class="hljs-number">30'000</span>);</code></pre>
+<pre><code>    std::cout &lt;&lt; <span class="hljs-string">&quot;Warming up plugin...&quot;</span> &lt;&lt; std::endl;
+    Thread::<span class="hljs-built_in">sleep</span>(<span class="hljs-number">30&#x27;000</span>);</code></pre>
 <div class="paragraph">
 <p>という、なんだこれはというコードがあります。そう。このプログラムはVSTプラグインをロードした後30秒間停止します。</p>
 </div>
@@ -500,13 +531,17 @@ Your browser does not support the audio tag.
 <h2 id="_まとめ">まとめ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>今回の記事は、MML → VST Pluginという時間を越えた何かを実現しようとしたら、そもそも設計思想時点で無理筋だったのではないかという問題にあたってしまったというものでした。まあ、デーモン化するなりなんなりでなんとか回避できそうな問題なので、そこまでの問題ではないですが、ちょっときれいではないのが残念なところです。</p>
+<p>今回の記事は、MML &#8594; VST Pluginという時間を越えた何かを実現しようとしたら、そもそも設計思想時点で無理筋だったのではないかという問題にあたってしまったというものでした。まあ、デーモン化するなりなんなりでなんとか回避できそうな問題なので、そこまでの問題ではないですが、ちょっときれいではないのが残念なところです。</p>
 </div>
 <div class="paragraph">
 <p>なんにせよ、久しぶりにC++を書いたり、ブラックボックスだったVSTの仕様を垣間見たりすることができたのはよかったと思います。</p>
 </div>
 </div>
-</div></div></div></main><footer><div>nikory - Ver. 1.0</div><div>Copyright © 2018-2025<a href="https://github.com/nikorisoft">nikorisoft</a></div></footer></div></div>
-    
-
-</body></html>
+</div></div>
+      <footer>
+        <div>nikory - Ver. 1.1</div>
+        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,13 +1,41 @@
-<!DOCTYPE html><html lang="en"><head>
-        <title>oneworld Explorer Explorer - nikory</title>
-        <meta charset="utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="../"><link rel="stylesheet" href="./css/nikory.css"><link rel="stylesheet" href="./css/a11y-light.css"><meta property="og:title" content="oneworld Explorer Explorer - nikory"><meta property="og:type" content="article"><meta property="og:url" content="https://nikori.jp/nikory/articles/17.html"><meta property="og:site_name" content="nikory (nikorisoft blog)"><meta property="og:locale" content="ja_JP"></head>
-    <body>
-        <div id="app" data-server-rendered="true"><div class="container" id="root"><header><nav><ul><li><a href="/"><strong>nikory</strong></a></li></ul><ul><li><a href="./index.html">Articles Index</a></li><li><a href="./articles/49.html">Latest Article</a></li></ul></nav></header><main><div class="article"><hgroup><h1>oneworld Explorer Explorer</h1><p>Created at 2020/12/22 4:04:58<span>and last updated at 2020/12/22 4:24:42</span><span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p></hgroup><div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>oneworld Explorer Explorer - nikory</title>
+    <base href="..">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="./css/a11y-light.css">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="nikory (nikorisoft blog)">
+    <meta property="og:title" content="oneworld Explorer Explorer - nikory">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nikori.jp/nikory/articles/17.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container" id="root">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/"><strong>nikory</strong></a></li>
+          </ul>
+          <ul>
+            <li><a href="../index.html">Articles Index</a></li>
+            <li><a href="./articles/49.html">Latest Article</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <hgroup>
+          <h1>oneworld Explorer Explorer</h1>
+          <p>Created on 2020/12/22<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
+        </hgroup>
+      </main>
+      <div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
 <p>さて、2020年最後の記事は、やはりoneworld Explorerです。<a href="./articles/13.html">前回</a>は、4大陸で3大陸を上回る効率を実現できることを示しました。旅行はできていませんが発券はできたので、ほぼ確実と言ってもいいでしょう。</p>
 <p>ここまでやって経路をひたすら手で探しているのは、さすがに人間としてどうかと思われる頃合いかと思いますので、たまにはプログラムを書いて探索をしてみることにしました。本来は、最長解を探すのが理想なのですが、いろいろな課題があり、それを解決するには能力も気力も足りないので、ほどほどな結果を出すことを目標としていきましょう。</p>
 <p>今回は、言語の練習としてRustで書いてみました。正しい使い方でないところが随所にあるかと思いますがご容赦くださいまし。</p>
@@ -23,9 +51,9 @@
         <span class="hljs-keyword">let</span> <span class="hljs-variable">lat2</span> = to.lat / <span class="hljs-number">180.0</span> * PI;
         <span class="hljs-keyword">let</span> <span class="hljs-variable">lon1</span> = from.lon / <span class="hljs-number">180.0</span> * PI;
         <span class="hljs-keyword">let</span> <span class="hljs-variable">lon2</span> = to.lon / <span class="hljs-number">180.0</span> * PI;
-    
+
         <span class="hljs-keyword">let</span> <span class="hljs-variable">d_lon</span> = (lon1 - lon2).<span class="hljs-title function_ invoke__">abs</span>();
-    
+
         <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = lat1.<span class="hljs-title function_ invoke__">sin</span>() * lat2.<span class="hljs-title function_ invoke__">sin</span>() + lat1.<span class="hljs-title function_ invoke__">cos</span>() * lat2.<span class="hljs-title function_ invoke__">cos</span>() * d_lon.<span class="hljs-title function_ invoke__">cos</span>();
         <span class="hljs-keyword">let</span> <span class="hljs-variable">y</span> = ((lat2.<span class="hljs-title function_ invoke__">cos</span>() * d_lon.<span class="hljs-title function_ invoke__">sin</span>()).<span class="hljs-title function_ invoke__">powi</span>(<span class="hljs-number">2</span>) + (lat1.<span class="hljs-title function_ invoke__">cos</span>() * lat2.<span class="hljs-title function_ invoke__">sin</span>() - lat1.<span class="hljs-title function_ invoke__">sin</span>() * lat2.<span class="hljs-title function_ invoke__">cos</span>() * d_lon.<span class="hljs-title function_ invoke__">cos</span>()).<span class="hljs-title function_ invoke__">powi</span>(<span class="hljs-number">2</span>))
             .<span class="hljs-title function_ invoke__">sqrt</span>();
@@ -61,7 +89,7 @@
             <span class="hljs-number">2.0</span>
         } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (from.area == AreaCode::Japan &amp;&amp; (to.area == AreaCode::Asia || to.area == AreaCode::Oceania)) ||
             (to.area == AreaCode::Japan &amp;&amp; (from.area == AreaCode::Asia || from.area == AreaCode::Oceania)) {
-            <span class="hljs-keyword">if</span> from.country == <span class="hljs-string">"RU"</span> || to.country == <span class="hljs-string">"RU"</span> {
+            <span class="hljs-keyword">if</span> from.country == <span class="hljs-string">&quot;RU&quot;</span> || to.country == <span class="hljs-string">&quot;RU&quot;</span> {
                 <span class="hljs-comment">// Russia (East of Ural) is considered to be in Europe</span>
                 <span class="hljs-number">1.0</span>
             } <span class="hljs-keyword">else</span> {
@@ -141,53 +169,53 @@
 <pre><code>    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">find_area</span>(country_code: &amp;<span class="hljs-type">str</span>, time_zone: &amp;<span class="hljs-type">str</span>, map: &amp;HashMap&lt;<span class="hljs-type">String</span>, &amp;json::JsonCountryCode&gt;) <span class="hljs-punctuation">-&gt;</span> AreaCode {
         <span class="hljs-keyword">let</span> <span class="hljs-variable">country</span> = map[country_code];
 
-        <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">"JP"</span> {
+        <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">&quot;JP&quot;</span> {
             AreaCode::Japan
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">"Asia"</span> {
-            <span class="hljs-keyword">if</span> country.sub_region == <span class="hljs-string">"Western Asia"</span> {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">&quot;Asia&quot;</span> {
+            <span class="hljs-keyword">if</span> country.sub_region == <span class="hljs-string">&quot;Western Asia&quot;</span> {
                 AreaCode::EuropeMiddleEast
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">"IR"</span> { <span class="hljs-comment">// Iran is in Middle-East</span>
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">&quot;IR&quot;</span> { <span class="hljs-comment">// Iran is in Middle-East</span>
                 AreaCode::EuropeMiddleEast
             } <span class="hljs-keyword">else</span> {
                 AreaCode::Asia
             }
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">"Oceania"</span> {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">&quot;Oceania&quot;</span> {
             AreaCode::Oceania
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">"Europe"</span> {
-            <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">"RU"</span> {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">&quot;Europe&quot;</span> {
+            <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">&quot;RU&quot;</span> {
                 <span class="hljs-keyword">match</span> time_zone {
-                    <span class="hljs-string">"6"</span> | <span class="hljs-string">"7"</span> | <span class="hljs-string">"8"</span> | <span class="hljs-string">"9"</span> | <span class="hljs-string">"10"</span> | <span class="hljs-string">"11"</span> =&gt; AreaCode::Asia,
+                    <span class="hljs-string">&quot;6&quot;</span> | <span class="hljs-string">&quot;7&quot;</span> | <span class="hljs-string">&quot;8&quot;</span> | <span class="hljs-string">&quot;9&quot;</span> | <span class="hljs-string">&quot;10&quot;</span> | <span class="hljs-string">&quot;11&quot;</span> =&gt; AreaCode::Asia,
                     _ =&gt; AreaCode::EuropeMiddleEast
                 }
             } <span class="hljs-keyword">else</span> {
                 AreaCode::EuropeMiddleEast
             }
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">"Africa"</span> {
-            <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">"DZ"</span> || country.code == <span class="hljs-string">"MA"</span> { <span class="hljs-comment">// Algeria and Morocco are in Europe</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">&quot;Africa&quot;</span> {
+            <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">&quot;DZ&quot;</span> || country.code == <span class="hljs-string">&quot;MA&quot;</span> { <span class="hljs-comment">// Algeria and Morocco are in Europe</span>
                 AreaCode::EuropeMiddleEast
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">"EG"</span> || country.code == <span class="hljs-string">"LY"</span> || country.code == <span class="hljs-string">"SD"</span> { <span class="hljs-comment">// Egypt, Libya and Sudan are in Middle East</span>
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.code == <span class="hljs-string">&quot;EG&quot;</span> || country.code == <span class="hljs-string">&quot;LY&quot;</span> || country.code == <span class="hljs-string">&quot;SD&quot;</span> { <span class="hljs-comment">// Egypt, Libya and Sudan are in Middle East</span>
                 AreaCode::EuropeMiddleEast
             } <span class="hljs-keyword">else</span> {
                 AreaCode::Africa
             }
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">"Americas"</span> {
-            <span class="hljs-keyword">if</span> country.sub_region == <span class="hljs-string">"Northern America"</span> {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> country.region == <span class="hljs-string">&quot;Americas&quot;</span> {
+            <span class="hljs-keyword">if</span> country.sub_region == <span class="hljs-string">&quot;Northern America&quot;</span> {
                 AreaCode::NorthAmerica
             } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">if</span> country.intermediate_region == <span class="hljs-string">"Caribbean"</span> || country.intermediate_region == <span class="hljs-string">"Central America"</span> {
+                <span class="hljs-keyword">if</span> country.intermediate_region == <span class="hljs-string">&quot;Caribbean&quot;</span> || country.intermediate_region == <span class="hljs-string">&quot;Central America&quot;</span> {
                     AreaCode::NorthAmerica
                 } <span class="hljs-keyword">else</span> {
                     AreaCode::SouthAmerica
                 }
             }
         } <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">panic!</span>(<span class="hljs-string">"Cannot determine region for {}"</span>, country.code);
+            <span class="hljs-built_in">panic!</span>(<span class="hljs-string">&quot;Cannot determine region for {}&quot;</span>, country.code);
         }
     }</code></pre><h3><span>空港の数</span></h3><p>では、地域ごとの空港の数をカウントしてみます。</p>
-<table><thead><tr><th>地域</th><th>データ中の空港数</th></tr></thead><tbody><tr><td>アジア</td><td>210</td></tr><tr><td>ヨーロッパ・中東</td><td>278</td></tr><tr><td>オセアニア</td><td>85</td></tr><tr><td>アフリカ</td><td>49</td></tr><tr><td>北アメリカ</td><td>334</td></tr><tr><td>南アメリカ</td><td>17</td></tr></tbody></table><p>南アメリカが少ないですね。まあ、LATAM航空が抜けたのでしょうがないですね。</p>
+<table><thead><th>地域</th><th>データ中の空港数</th></thead><tbody><tr><td>アジア</td><td>210</td></tr><tr><td>ヨーロッパ・中東</td><td>278</td></tr><tr><td>オセアニア</td><td>85</td></tr><tr><td>アフリカ</td><td>49</td></tr><tr><td>北アメリカ</td><td>334</td></tr><tr><td>南アメリカ</td><td>17</td></tr></tbody></table><p>南アメリカが少ないですね。まあ、LATAM航空が抜けたのでしょうがないですね。</p>
 <h3><span>dの実装の妥当性</span></h3><p>さて、とりあえずこのように作った<em>d</em> (プログラム上では、<code>City::calc_point</code>)がどれだけ妥当かどうかを確かめてみましょう。</p>
 <p>まともな検証とは言いがたいですが、とりあえず、例として、<a href="./articles/3.html">前回のoneworld Explorerの旅程</a>に対して計算をしてみて、比較してみましょう。</p>
-<table><thead><tr><th>From</th><th>To</th><th>Estimated (MC)</th><th>Actual</th><th><code>calc_point</code></th></tr></thead><tbody><tr><td>NRT</td><td>KUL</td><td>6681</td><td>6659</td><td>6584</td></tr><tr><td>KUL</td><td>HKG</td><td>1962</td><td>1965</td><td>1942</td></tr><tr><td>HKG</td><td>MAD</td><td>8175</td><td>8163</td><td>8165</td></tr><tr><td>MAD</td><td>HEL</td><td>2287</td><td>2290</td><td>2284</td></tr><tr><td>HEL</td><td>LIS</td><td>2612</td><td>2612</td><td>2606</td></tr><tr><td>LIS</td><td>LHR</td><td>1215</td><td>1236</td><td>1229</td></tr><tr><td>LHR</td><td>DOH</td><td>4062</td><td>4050</td><td>4041</td></tr><tr><td>DOH</td><td>LAX</td><td>10362</td><td>10368</td><td>10362</td></tr><tr><td>LAX</td><td>ANC</td><td>2925</td><td>2929</td><td>2932</td></tr><tr><td>ANC</td><td>DFW</td><td>3787</td><td>3803</td><td>3797</td></tr><tr><td>DFW</td><td>YVR</td><td>2187</td><td>2195</td><td>2185</td></tr><tr><td>YVR</td><td>JFK</td><td>3050</td><td>3030</td><td>3035</td></tr><tr><td>JFK</td><td>MIA</td><td>1362</td><td>1380</td><td>1375</td></tr><tr><td>MIA</td><td>BOS</td><td>1575</td><td>1575</td><td>1575</td></tr><tr><td>BOS</td><td>HKG</td><td>9937</td><td>9948</td><td>9932</td></tr><tr><td>HKG</td><td>NRT</td><td>3812</td><td>3818</td><td>3765</td></tr><tr><td>Total</td><td>-</td><td>65991</td><td>66021</td><td>65809</td></tr></tbody></table><p>誤差 0.3% なので、まあいいんじゃないでしょうか。はい。</p>
+<table><thead><th>From</th><th>To</th><th>Estimated (MC)</th><th>Actual</th><th><code>calc_point</code></th></thead><tbody><tr><td>NRT</td><td>KUL</td><td>6681</td><td>6659</td><td>6584</td></tr><tr><td>KUL</td><td>HKG</td><td>1962</td><td>1965</td><td>1942</td></tr><tr><td>HKG</td><td>MAD</td><td>8175</td><td>8163</td><td>8165</td></tr><tr><td>MAD</td><td>HEL</td><td>2287</td><td>2290</td><td>2284</td></tr><tr><td>HEL</td><td>LIS</td><td>2612</td><td>2612</td><td>2606</td></tr><tr><td>LIS</td><td>LHR</td><td>1215</td><td>1236</td><td>1229</td></tr><tr><td>LHR</td><td>DOH</td><td>4062</td><td>4050</td><td>4041</td></tr><tr><td>DOH</td><td>LAX</td><td>10362</td><td>10368</td><td>10362</td></tr><tr><td>LAX</td><td>ANC</td><td>2925</td><td>2929</td><td>2932</td></tr><tr><td>ANC</td><td>DFW</td><td>3787</td><td>3803</td><td>3797</td></tr><tr><td>DFW</td><td>YVR</td><td>2187</td><td>2195</td><td>2185</td></tr><tr><td>YVR</td><td>JFK</td><td>3050</td><td>3030</td><td>3035</td></tr><tr><td>JFK</td><td>MIA</td><td>1362</td><td>1380</td><td>1375</td></tr><tr><td>MIA</td><td>BOS</td><td>1575</td><td>1575</td><td>1575</td></tr><tr><td>BOS</td><td>HKG</td><td>9937</td><td>9948</td><td>9932</td></tr><tr><td>HKG</td><td>NRT</td><td>3812</td><td>3818</td><td>3765</td></tr><tr><td>Total</td><td>-</td><td>65991</td><td>66021</td><td>65809</td></tr></tbody></table><p>誤差 0.3% なので、まあいいんじゃないでしょうか。はい。</p>
 <h2><span>計算</span></h2><p>さて、まずは何も考えずに計算してみましょう。まずは、地域内で最長のルートを探してみましょう。アジアを例にとってみると、</p>
 <pre><code><span class="hljs-attribute">Result</span> <span class="hljs-operator">=</span> <span class="hljs-number">41500</span>
 MMB - GAN - MMB - GAN - MMB</code></pre><p>となります。女満別空港(MMB)とモルディブのガン島のガン国際空港(GAN)を往復するというルートになります。当たり前なんですが、何の制約もつけなかったので、地域内の最長距離の2空港をひたすら往復するという答えがでます。</p>
@@ -220,7 +248,7 @@ MMB - GAN - MMB - GAN - MMB</code></pre><p>となります。女満別空港(MMB
 <p>これだと空港ごとにデータを取得しないといけないため、単純にやってしまうとデータをそろえるのが大変ですが、上記のようにハブ空港を選んだので、ハブ空港から飛んでいるルートのみを取得することとしました。</p>
 <p>ただし、このリストは、実際に直近で飛んだ飛行機が存在する空港のリストで、貨物便も含んでいること、アライアンス外の航空会社によるものも含んでいることには要注意です。また、取得した日時で内容は変化するはずです。</p>
 <p>これを踏まえて、ハブから接続されていない空港は、そもそも空港リストから除外することとしました。この結果、空港の数は、</p>
-<table><thead><tr><th>地域</th><th>データ中の空港数</th></tr></thead><tbody><tr><td>アジア</td><td>99</td></tr><tr><td>ヨーロッパ・中東</td><td>140</td></tr><tr><td>オセアニア</td><td>52</td></tr><tr><td>アフリカ</td><td>17</td></tr><tr><td>北アメリカ</td><td>282</td></tr><tr><td>南アメリカ</td><td>12</td></tr></tbody></table><p>となりました。</p>
+<table><thead><th>地域</th><th>データ中の空港数</th></thead><tbody><tr><td>アジア</td><td>99</td></tr><tr><td>ヨーロッパ・中東</td><td>140</td></tr><tr><td>オセアニア</td><td>52</td></tr><tr><td>アフリカ</td><td>17</td></tr><tr><td>北アメリカ</td><td>282</td></tr><tr><td>南アメリカ</td><td>12</td></tr></tbody></table><p>となりました。</p>
 <h3><span>地域間移動と地域間移動</span></h3><p>これでもまだ全探索するには数が多いので、探索を次のように分けることにしました。</p>
 <ul>
 <li>地域間経路の探索</li>
@@ -235,14 +263,14 @@ MMB - GAN - MMB - GAN - MMB</code></pre><p>となります。女満別空港(MMB
 <h2><span>3大陸版</span></h2><p>では、3大陸を使った場合の最長路線を探索してみることにしましょう。対称なので、アジア→ヨーロッパ→北米→アジアという経路で考えます。</p>
 <p>まずは、地域間の移動経路です。</p>
 <h3><span>アジア～ヨーロッパ・中東</span></h3><p>最長のものから順に5つを書いていきましょう。</p>
-<table><thead><tr><th>経路</th><th>距離</th></tr></thead><tbody><tr><td><strong>SIN (シンガポール) -&gt; LON (ロンドン)</strong></td><td>8397</td></tr><tr><td>MNL (マニラ) -&gt; LON (ロンドン)</td><td>8329</td></tr><tr><td>KUL (クアラルンプール) -&gt; BRU (ブリュッセル)</td><td>7952</td></tr><tr><td>TYO (東京) -&gt; ZRH (チューリッヒ)</td><td>7829</td></tr><tr><td>TYO (東京) -&gt; FRA (フランクフルト)</td><td>7653</td></tr></tbody></table><p>上記で述べたように、この路線は、貨物便やoneworld以外の便も含んでいるため、現実的にあるかどうかとは別問題です。</p>
+<table><thead><th>経路</th><th>距離</th></thead><tbody><tr><td><strong>SIN (シンガポール) -&gt; LON (ロンドン)</strong></td><td>8397</td></tr><tr><td>MNL (マニラ) -&gt; LON (ロンドン)</td><td>8329</td></tr><tr><td>KUL (クアラルンプール) -&gt; BRU (ブリュッセル)</td><td>7952</td></tr><tr><td>TYO (東京) -&gt; ZRH (チューリッヒ)</td><td>7829</td></tr><tr><td>TYO (東京) -&gt; FRA (フランクフルト)</td><td>7653</td></tr></tbody></table><p>上記で述べたように、この路線は、貨物便やoneworld以外の便も含んでいるため、現実的にあるかどうかとは別問題です。</p>
 <p>幸いなことに、最長であるSIN-LON(LHR)は、BAが運航しているようですので、ここは、最初の<strong>SIN-LON</strong>を採用します。</p>
-<h3><span>ヨーロッパ・中東～北アメリカ</span></h3><table><thead><tr><th>経路</th><th>距離</th></tr></thead><tbody><tr><td>DXB (ドバイ) -&gt; LAX (ロサンゼルス)</td><td>10404</td></tr><tr><td><strong>DOH (ドーハ) -&gt; LAX (ロサンゼルス)</strong></td><td>10362</td></tr><tr><td>DOH (ドーハ) -&gt; DFW (ダラス・フォートワース)</td><td>9898</td></tr><tr><td>DXB (ドバイ) -&gt; MIA (マイアミ)</td><td>9795</td></tr><tr><td>TLV (テルアビブ) -&gt; LAX (ロサンゼルス)</td><td>9432</td></tr></tbody></table><p>DXB-LAXは、エミレーツ航空が運航していますが、残念ながらoneworldではありません。結局、ここはいままでも使っていた<strong>DOH-LAX</strong>ということになります。</p>
-<h3><span>北アメリカ～アジア</span></h3><table><thead><tr><th>経路</th><th>距離</th></tr></thead><tbody><tr><td>MEX (メキシコシティ) -&gt; HKG (香港)</td><td>10968</td></tr><tr><td>LAX (ロサンゼルス) -&gt; SIN (シンガポール)</td><td>10959</td></tr><tr><td>GDL (グアダラハラ) -&gt; HKG (香港)</td><td>10672</td></tr><tr><td>NYC (ニューヨーク) -&gt; MNL (マニラ)</td><td>10616</td></tr><tr><td><strong>NYC (ニューヨーク) -&gt; HKG (香港)</strong></td><td>10046</td></tr></tbody></table><p>さて、意外とメキシコがでてきますね。残念ながら、香港からメキシコ直行便は(少なくとも現在は)ないようです。LAX-SINは、シンガポール航空が運航していますが、これもoneworldではありません。NYC(JFK)-MNLもフィリピン航空が運航していますが、これもoneworldではありません。</p>
+<h3><span>ヨーロッパ・中東～北アメリカ</span></h3><table><thead><th>経路</th><th>距離</th></thead><tbody><tr><td>DXB (ドバイ) -&gt; LAX (ロサンゼルス)</td><td>10404</td></tr><tr><td><strong>DOH (ドーハ) -&gt; LAX (ロサンゼルス)</strong></td><td>10362</td></tr><tr><td>DOH (ドーハ) -&gt; DFW (ダラス・フォートワース)</td><td>9898</td></tr><tr><td>DXB (ドバイ) -&gt; MIA (マイアミ)</td><td>9795</td></tr><tr><td>TLV (テルアビブ) -&gt; LAX (ロサンゼルス)</td><td>9432</td></tr></tbody></table><p>DXB-LAXは、エミレーツ航空が運航していますが、残念ながらoneworldではありません。結局、ここはいままでも使っていた<strong>DOH-LAX</strong>ということになります。</p>
+<h3><span>北アメリカ～アジア</span></h3><table><thead><th>経路</th><th>距離</th></thead><tbody><tr><td>MEX (メキシコシティ) -&gt; HKG (香港)</td><td>10968</td></tr><tr><td>LAX (ロサンゼルス) -&gt; SIN (シンガポール)</td><td>10959</td></tr><tr><td>GDL (グアダラハラ) -&gt; HKG (香港)</td><td>10672</td></tr><tr><td>NYC (ニューヨーク) -&gt; MNL (マニラ)</td><td>10616</td></tr><tr><td><strong>NYC (ニューヨーク) -&gt; HKG (香港)</strong></td><td>10046</td></tr></tbody></table><p>さて、意外とメキシコがでてきますね。残念ながら、香港からメキシコ直行便は(少なくとも現在は)ないようです。LAX-SINは、シンガポール航空が運航していますが、これもoneworldではありません。NYC(JFK)-MNLもフィリピン航空が運航していますが、これもoneworldではありません。</p>
 <p>ということで、結局のところ、 <strong>NYC(JFK)-HKG</strong> ということになります。</p>
 <h3><span>地域内</span></h3><p>これで16区間のうち3区間が確定しますので、あとは、その間を埋める最長経路を探索すれば、今回の答えとなります。なお、配分方法は、4-4-5、4-3-6、3-4-6の3つ(アジア-ヨーロッパ-北アメリカの順)がありますので、3パターンを調べてその最長のものを選択すればよいでしょう。</p>
 <p>詳細は省略しますが、これによって得られる最長経路は4-3-6の場合で、以下のようになります。なお、oneworld Explorerは日本出発にすると安いのですが、アジア区間は、1.5倍のおかげでたいてい日本がどこかに絡んでくるため、そこを起点とすればこれを満たせることがわかります。なので、3番目が実際には最初の区間ということになります。(下記の表では、第1列はそのように書いています)</p>
-<table><thead><tr><th>#</th><th>From</th><th>To</th><th>Estimated FOP</th><th>Realistic?</th></tr></thead><tbody><tr><td>15</td><td>HKG (香港)</td><td>DEL (デリー)</td><td>2908</td><td>✓</td></tr><tr><td>16</td><td>DEL (デリー)</td><td>TYO (東京)</td><td>7204</td><td>✓</td></tr><tr><td>1</td><td>TYO（東京)</td><td>CMB (コロンボ)</td><td>8374</td><td>✓*</td></tr><tr><td>2</td><td>CMB (コロンボ)</td><td>SIN (シンガポール)</td><td>2110</td><td>✓</td></tr><tr><td>3</td><td>SIN (シンガポール)</td><td>LON (ロンドン)</td><td>8397</td><td>✓</td></tr><tr><td>4</td><td>LON (ロンドン)</td><td>MCT (マスカット)</td><td>4511</td><td></td></tr><tr><td>5</td><td>MCT (マスカット)</td><td>LON (ロンドン)</td><td>4511</td><td></td></tr><tr><td>6</td><td>LON (ロンドン)</td><td>DOH (ドーハ)</td><td>4041</td><td>✓</td></tr><tr><td>7</td><td>DOH (ドーハ)</td><td>LAX (ロサンゼルス)</td><td>10362</td><td>✓</td></tr><tr><td>8</td><td>LAX (ロサンゼルス)</td><td>PTY (パナマシティ)</td><td>3731</td><td></td></tr><tr><td>9</td><td>PTY (パナマシティ)</td><td>NYC (ニューヨーク)</td><td>2760</td><td></td></tr><tr><td>10</td><td>NYC (ニューヨーク)</td><td>ANC (アンカレッジ)</td><td>4207</td><td></td></tr><tr><td>11</td><td>ANC (アンカレッジ)</td><td>MIA (マイアミ)</td><td>4995</td><td></td></tr><tr><td>12</td><td>MIA (マイアミ)</td><td>ANC (アンカレッジ)</td><td>4995</td><td></td></tr><tr><td>13</td><td>ANC (アンカレッジ)</td><td>NYC (ニューヨーク)</td><td>4207</td><td></td></tr><tr><td>14</td><td>NYC (ニューヨーク)</td><td>HKG (香港)</td><td>10046</td><td>✓</td></tr></tbody></table><p>合計 <strong>87,359 FOP</strong>ということになります。税金抜きで計算すると、効率は<strong>7.51円/FOP</strong>です。</p>
+<table><thead><th>#</th><th>From</th><th>To</th><th>Estimated FOP</th><th>Realistic?</th></thead><tbody><tr><td>15</td><td>HKG (香港)</td><td>DEL (デリー)</td><td>2908</td><td>✓</td></tr><tr><td>16</td><td>DEL (デリー)</td><td>TYO (東京)</td><td>7204</td><td>✓</td></tr><tr><td>1</td><td>TYO（東京)</td><td>CMB (コロンボ)</td><td>8374</td><td>✓*</td></tr><tr><td>2</td><td>CMB (コロンボ)</td><td>SIN (シンガポール)</td><td>2110</td><td>✓</td></tr><tr><td>3</td><td>SIN (シンガポール)</td><td>LON (ロンドン)</td><td>8397</td><td>✓</td></tr><tr><td>4</td><td>LON (ロンドン)</td><td>MCT (マスカット)</td><td>4511</td><td></td></tr><tr><td>5</td><td>MCT (マスカット)</td><td>LON (ロンドン)</td><td>4511</td><td></td></tr><tr><td>6</td><td>LON (ロンドン)</td><td>DOH (ドーハ)</td><td>4041</td><td>✓</td></tr><tr><td>7</td><td>DOH (ドーハ)</td><td>LAX (ロサンゼルス)</td><td>10362</td><td>✓</td></tr><tr><td>8</td><td>LAX (ロサンゼルス)</td><td>PTY (パナマシティ)</td><td>3731</td><td></td></tr><tr><td>9</td><td>PTY (パナマシティ)</td><td>NYC (ニューヨーク)</td><td>2760</td><td></td></tr><tr><td>10</td><td>NYC (ニューヨーク)</td><td>ANC (アンカレッジ)</td><td>4207</td><td></td></tr><tr><td>11</td><td>ANC (アンカレッジ)</td><td>MIA (マイアミ)</td><td>4995</td><td></td></tr><tr><td>12</td><td>MIA (マイアミ)</td><td>ANC (アンカレッジ)</td><td>4995</td><td></td></tr><tr><td>13</td><td>ANC (アンカレッジ)</td><td>NYC (ニューヨーク)</td><td>4207</td><td></td></tr><tr><td>14</td><td>NYC (ニューヨーク)</td><td>HKG (香港)</td><td>10046</td><td>✓</td></tr></tbody></table><p>合計 <strong>87,359 FOP</strong>ということになります。税金抜きで計算すると、効率は<strong>7.51円/FOP</strong>です。</p>
 <p>さて、ではこれがどれだけ現実的かを見ていきましょう。
 oneworld Explorerのルール違反はありません。ですが、半数の路線は実際にoneworld加盟会社によって運航されているものですが(1, 2, 3, 6, 7, 14, 15, 16)、それ以外は旅客便としては存在しないか、oneworld外の路線ということになってしまいます。</p>
 <p>中でも北米内が極めてダメです。アンカレッジと東海岸を結ぶ路線は残念ながらありません。そんなのがあるならば、大陸横断路線禁止項目(<a href="./articles/3.html">前の記事の(NA13)</a>)に入っているはずです。また、LAX-PTY, PTY-NYC路線は実在しているようですが、これもoneworldではないようです。残念ですね。</p>
@@ -253,7 +281,12 @@ oneworld Explorerのルール違反はありません。ですが、半数の路
 <p>他方、アジア～ヨーロッパ間で、SIN-LHR路線をつかうという発想がなかったため(考えれば当たり前なのですが)、今後のルート作成に参考にしたいと思います。こういった一つのルートを対象にすれば、路線が実在するかどうかを確かめることができるので、実用性があるかもしれませんね。</p>
 <p>いずれにしても、現在の世界情勢においてはこういったチケットを使うことはほぼ不可能ですし、さらに航空会社の財政状態が悪化したあと、このようなチケットが残っているかどうかも不透明です。これが未来に生かされるのか、ただの鎮魂歌になってしまうのか、前者であることを祈らざるを得ません。</p>
 <h3><span>ソース</span></h3><p>READMEも何もなくて微妙ですが、いちおう<a href="https://github.com/nikorisoft/owe-explorer">ソース</a>を公開しておきます。</p>
-</div></div></main><footer><div>nikory - Ver. 1.0</div><div>Copyright © 2018-2025<a href="https://github.com/nikorisoft">nikorisoft</a></div></footer></div></div>
-    
-
-</body></html>
+<!--- nikory-metadata: { "timestamp": "2020-12-22T00:00:00+09:00" } -->
+</div>
+      <footer>
+        <div>nikory - Ver. 1.1</div>
+        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
+      </footer>
+    </div>
+  </body>
+</html>
