@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/fontawesome.min.css">
     <link rel="stylesheet" href="./css/solid.min.css">
     <link rel="stylesheet" href="./css/regular.min.css">
-    <link rel="stylesheet" href="./css/glightbox.min.css">
+    <link rel="stylesheet" href="./css/photoswipe.css">
     <script type="module" src="./js/gallery.mjs"></script>
     <meta property="og:description" content="旅行記録からレポートを生成する仕組みを作ってみて、大分旅行をサンプルとして出してみたもの">
     <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-44.jpg">
@@ -77,7 +77,7 @@
 <p>そして、この記事としてはnitroxの旅行ログ機能を実装したので、それを最初に試すというものです。(当初はoneworld Explorerにするつもりでしたが、さすがに書く量が多いので、まずはこれから始めていこうと思います）</p>
 </div></div>
   <div class="trip-content-grid">
-    <div class="map-frame" id="map-container">
+    <div class="map-frame gscrollbar-fixer" id="map-container">
       <div id="trip-map"></div>
     </div>
     <div class="timeline-feed">
@@ -113,18 +113,18 @@
 <p>ちなみに、大分はサンリオハーモニーランドがあるためか、サンリオとのコラボがいろいろなところで見受けられます。ということで、大分空港は完全に何かに乗っ取られておりました。(なお、<a href="https://www.nikkei.com/article/DGXZQOJC176LU0X10C25A3000000/">こちらの記事</a>によれば、空港のキャンペーンは、万博期間中ということですが、訪問時の11月でもまだやってました)</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-transportation9043"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4286.jpg" data-gallery="lg-transportation9043" data-title="搭乗機 (JA338J)" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100"><img alt="搭乗機 (JA338J)" src="resources/photos.small/44/IMG_4286.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9043"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4286.jpg" data-gallery="lg-transportation9043" data-title="搭乗機 (JA338J)" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="搭乗機 (JA338J)" src="resources/photos.small/44/IMG_4286.jpg"/>
                       <div class="caption hidden">
-                        <h4>搭乗機 (JA338J)</h4>
-                        <p>Canon EOS RP - 1/160, f/4.5, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4288.jpg" data-gallery="lg-transportation9043" data-title="ボーディングブリッジのさりげないキティ@OIT" data-description="Canon EOS RP - 1/320, f/5.6, ISO 100"><img alt="ボーディングブリッジのさりげないキティ@OIT" src="resources/photos.small/44/IMG_4288.jpg"/>
+                        <p>搭乗機 (JA338J)</p>
+                        <p class="supportive">Canon EOS RP - 1/160, f/4.5, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4288.jpg" data-gallery="lg-transportation9043" data-title="ボーディングブリッジのさりげないキティ@OIT" data-description="Canon EOS RP - 1/320, f/5.6, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="ボーディングブリッジのさりげないキティ@OIT" src="resources/photos.small/44/IMG_4288.jpg"/>
                       <div class="caption hidden">
-                        <h4>ボーディングブリッジのさりげないキティ@OIT</h4>
-                        <p>Canon EOS RP - 1/320, f/5.6, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4291.jpg" data-gallery="lg-transportation9043" data-title="完全なるキティ" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200"><img alt="完全なるキティ" src="resources/photos.small/44/IMG_4291.jpg"/>
+                        <p>ボーディングブリッジのさりげないキティ@OIT</p>
+                        <p class="supportive">Canon EOS RP - 1/320, f/5.6, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4291.jpg" data-gallery="lg-transportation9043" data-title="完全なるキティ" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200" data-pswp-width="3000" data-pswp-height="2000"><img alt="完全なるキティ" src="resources/photos.small/44/IMG_4291.jpg"/>
                       <div class="caption hidden">
-                        <h4>完全なるキティ</h4>
-                        <p>Canon EOS RP - 1/60, f/2.8, ISO 200</p>
+                        <p>完全なるキティ</p>
+                        <p class="supportive">Canon EOS RP - 1/60, f/2.8, ISO 200</p>
                       </div></a>
                   </div>
                 </div>
@@ -163,26 +163,26 @@
 <p>1日4便しかないところが残念ですが、機会があればぜひ乗ってみるべきだと思います。地図で見るとわかりますが、地上交通だと湾をぐるっと回っていかないといけないので、ここをまっすぐ結んでいる点で所要時間的にも優れているといえるでしょう。・・・まあ、大分市内側は数分ではありますがバスで移動が必要なのは、海岸の場所からしてやむを得ないところではありますね・・・。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-transportation9046"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4298.jpg" data-gallery="lg-transportation9046" data-title="大分空港での案内板" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100"><img alt="大分空港での案内板" src="resources/photos.small/44/IMG_4298.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9046"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4298.jpg" data-gallery="lg-transportation9046" data-title="大分空港での案内板" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="大分空港での案内板" src="resources/photos.small/44/IMG_4298.jpg"/>
                       <div class="caption hidden">
-                        <h4>大分空港での案内板</h4>
-                        <p>Canon EOS RP - 1/100, f/3.5, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4300.jpg" data-gallery="lg-transportation9046" data-title="大分空港側のホーバーターミナル" data-description="Canon EOS RP - 1/200, f/5.0, ISO 100"><img alt="大分空港側のホーバーターミナル" src="resources/photos.small/44/IMG_4300.jpg"/>
+                        <p>大分空港での案内板</p>
+                        <p class="supportive">Canon EOS RP - 1/100, f/3.5, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4300.jpg" data-gallery="lg-transportation9046" data-title="大分空港側のホーバーターミナル" data-description="Canon EOS RP - 1/200, f/5.0, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="大分空港側のホーバーターミナル" src="resources/photos.small/44/IMG_4300.jpg"/>
                       <div class="caption hidden">
-                        <h4>大分空港側のホーバーターミナル</h4>
-                        <p>Canon EOS RP - 1/200, f/5.0, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4321.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフト (02)" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100"><img alt="ホーバークラフト (02)" src="resources/photos.small/44/IMG_4321.jpg"/>
+                        <p>大分空港側のホーバーターミナル</p>
+                        <p class="supportive">Canon EOS RP - 1/200, f/5.0, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4321.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフト (02)" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="ホーバークラフト (02)" src="resources/photos.small/44/IMG_4321.jpg"/>
                       <div class="caption hidden">
-                        <h4>ホーバークラフト (02)</h4>
-                        <p>Canon EOS RP - 1/500, f/8.0, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4324.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフトの中" data-description="Canon EOS RP - 1/60, f/2.8, ISO 160"><img alt="ホーバークラフトの中" src="resources/photos.small/44/IMG_4324.jpg"/>
+                        <p>ホーバークラフト (02)</p>
+                        <p class="supportive">Canon EOS RP - 1/500, f/8.0, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4324.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフトの中" data-description="Canon EOS RP - 1/60, f/2.8, ISO 160" data-pswp-width="3000" data-pswp-height="2000"><img alt="ホーバークラフトの中" src="resources/photos.small/44/IMG_4324.jpg"/>
                       <div class="caption hidden">
-                        <h4>ホーバークラフトの中</h4>
-                        <p>Canon EOS RP - 1/60, f/2.8, ISO 160</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4330.jpg" data-gallery="lg-transportation9046" data-title="西大分ターミナルとホーバークラフト" data-description="Canon EOS RP - 1/250, f/5.6, ISO 100"><img alt="西大分ターミナルとホーバークラフト" src="resources/photos.small/44/IMG_4330.jpg"/>
+                        <p>ホーバークラフトの中</p>
+                        <p class="supportive">Canon EOS RP - 1/60, f/2.8, ISO 160</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4330.jpg" data-gallery="lg-transportation9046" data-title="西大分ターミナルとホーバークラフト" data-description="Canon EOS RP - 1/250, f/5.6, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="西大分ターミナルとホーバークラフト" src="resources/photos.small/44/IMG_4330.jpg"/>
                       <div class="caption hidden">
-                        <h4>西大分ターミナルとホーバークラフト</h4>
-                        <p>Canon EOS RP - 1/250, f/5.6, ISO 100</p>
+                        <p>西大分ターミナルとホーバークラフト</p>
+                        <p class="supportive">Canon EOS RP - 1/250, f/5.6, ISO 100</p>
                       </div></a>
                   </div>
                 </div>
@@ -204,14 +204,14 @@
 <p>西大分ターミナルから歩いていけるところにある神社です。七五三のお祝をやってたようです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-visit97"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4364.jpg" data-gallery="lg-visit97" data-title="春日神社の手水舎" data-description="Canon EOS RP - 1/60, f/2.2, ISO 200"><img alt="春日神社の手水舎" src="resources/photos.small/44/IMG_4364.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit97"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4364.jpg" data-gallery="lg-visit97" data-title="春日神社の手水舎" data-description="Canon EOS RP - 1/60, f/2.2, ISO 200" data-pswp-width="3000" data-pswp-height="2000"><img alt="春日神社の手水舎" src="resources/photos.small/44/IMG_4364.jpg"/>
                       <div class="caption hidden">
-                        <h4>春日神社の手水舎</h4>
-                        <p>Canon EOS RP - 1/60, f/2.2, ISO 200</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4368.jpg" data-gallery="lg-visit97" data-title="春日神社" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100"><img alt="春日神社" src="resources/photos.small/44/IMG_4368.jpg"/>
+                        <p>春日神社の手水舎</p>
+                        <p class="supportive">Canon EOS RP - 1/60, f/2.2, ISO 200</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4368.jpg" data-gallery="lg-visit97" data-title="春日神社" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="春日神社" src="resources/photos.small/44/IMG_4368.jpg"/>
                       <div class="caption hidden">
-                        <h4>春日神社</h4>
-                        <p>Canon EOS RP - 1/160, f/4.5, ISO 100</p>
+                        <p>春日神社</p>
+                        <p class="supportive">Canon EOS RP - 1/160, f/4.5, ISO 100</p>
                       </div></a>
                   </div>
                 </div>
@@ -236,18 +236,18 @@
 <p>市としては豊後大野市(旧緒方町)です。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-visit98"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4379.jpg" data-gallery="lg-visit98" data-title="原尻の滝" data-description="Canon EOS RP - 1/80, f/3.2, ISO 100"><img alt="原尻の滝" src="resources/photos.small/44/IMG_4379.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit98"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4379.jpg" data-gallery="lg-visit98" data-title="原尻の滝" data-description="Canon EOS RP - 1/80, f/3.2, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="原尻の滝" src="resources/photos.small/44/IMG_4379.jpg"/>
                       <div class="caption hidden">
-                        <h4>原尻の滝</h4>
-                        <p>Canon EOS RP - 1/80, f/3.2, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4390.jpg" data-gallery="lg-visit98" data-title="原尻の滝 (少し下から)" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100"><img alt="原尻の滝 (少し下から)" src="resources/photos.small/44/IMG_4390.jpg"/>
+                        <p>原尻の滝</p>
+                        <p class="supportive">Canon EOS RP - 1/80, f/3.2, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4390.jpg" data-gallery="lg-visit98" data-title="原尻の滝 (少し下から)" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="原尻の滝 (少し下から)" src="resources/photos.small/44/IMG_4390.jpg"/>
                       <div class="caption hidden">
-                        <h4>原尻の滝 (少し下から)</h4>
-                        <p>Canon EOS RP - 1/100, f/3.5, ISO 100</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4395.jpg" data-gallery="lg-visit98" data-title="滝見橋" data-description="Canon EOS RP - 1/125, f/4.0, ISO 100"><img alt="滝見橋" src="resources/photos.small/44/IMG_4395.jpg"/>
+                        <p>原尻の滝 (少し下から)</p>
+                        <p class="supportive">Canon EOS RP - 1/100, f/3.5, ISO 100</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4395.jpg" data-gallery="lg-visit98" data-title="滝見橋" data-description="Canon EOS RP - 1/125, f/4.0, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="滝見橋" src="resources/photos.small/44/IMG_4395.jpg"/>
                       <div class="caption hidden">
-                        <h4>滝見橋</h4>
-                        <p>Canon EOS RP - 1/125, f/4.0, ISO 100</p>
+                        <p>滝見橋</p>
+                        <p class="supportive">Canon EOS RP - 1/125, f/4.0, ISO 100</p>
                       </div></a>
                   </div>
                 </div>
@@ -272,14 +272,14 @@
 <p>まあ、逆に陸上で見学するとなると、そんなにほかの鍾乳洞と何か違うかというと微妙なところです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-visit99"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_064335181.NIGHT.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞" data-description="Pixel 9 Pro - 1/29, f/1.7, ISO 413"><img alt="稲積水中鍾乳洞" src="resources/photos.small/44/PXL_20251102_064335181.NIGHT.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit99"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_064335181.NIGHT.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞" data-description="Pixel 9 Pro - 1/29, f/1.7, ISO 413" data-pswp-width="3000" data-pswp-height="2259"><img alt="稲積水中鍾乳洞" src="resources/photos.small/44/PXL_20251102_064335181.NIGHT.jpg"/>
                       <div class="caption hidden">
-                        <h4>稲積水中鍾乳洞</h4>
-                        <p>Pixel 9 Pro - 1/29, f/1.7, ISO 413</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4516.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞の外" data-description="Canon EOS RP - 1/60, f/2.5, ISO 200"><img alt="稲積水中鍾乳洞の外" src="resources/photos.small/44/IMG_4516.jpg"/>
+                        <p>稲積水中鍾乳洞</p>
+                        <p class="supportive">Pixel 9 Pro - 1/29, f/1.7, ISO 413</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4516.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞の外" data-description="Canon EOS RP - 1/60, f/2.5, ISO 200" data-pswp-width="3000" data-pswp-height="2000"><img alt="稲積水中鍾乳洞の外" src="resources/photos.small/44/IMG_4516.jpg"/>
                       <div class="caption hidden">
-                        <h4>稲積水中鍾乳洞の外</h4>
-                        <p>Canon EOS RP - 1/60, f/2.5, ISO 200</p>
+                        <p>稲積水中鍾乳洞の外</p>
+                        <p class="supportive">Canon EOS RP - 1/60, f/2.5, ISO 200</p>
                       </div></a>
                   </div>
                 </div>
@@ -312,10 +312,10 @@
 <p>神戸着が6:40ということで、レストランの朝食が5:30から開業とちょっと朝は早いです。出発が19時台なので、全体的にあと1時間遅ければいいのになと思わなくもないです。(実際、神戸が土日到着は1時間遅いダイヤになっています)</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-transportation9047"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_090125416.jpg" data-gallery="lg-transportation9047" data-title="さんふらわあぱある" data-description="Pixel 9 Pro - 1/40, f/1.7, ISO 552"><img alt="さんふらわあぱある" src="resources/photos.small/44/PXL_20251102_090125416.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9047"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_090125416.jpg" data-gallery="lg-transportation9047" data-title="さんふらわあぱある" data-description="Pixel 9 Pro - 1/40, f/1.7, ISO 552" data-pswp-width="3000" data-pswp-height="2259"><img alt="さんふらわあぱある" src="resources/photos.small/44/PXL_20251102_090125416.jpg"/>
                       <div class="caption hidden">
-                        <h4>さんふらわあぱある</h4>
-                        <p>Pixel 9 Pro - 1/40, f/1.7, ISO 552</p>
+                        <p>さんふらわあぱある</p>
+                        <p class="supportive">Pixel 9 Pro - 1/40, f/1.7, ISO 552</p>
                       </div></a>
                   </div>
                 </div>
@@ -394,10 +394,10 @@
 <p>ひさしぶりの六甲ライナーです。以前は、ポートライナーよりさらに古い車両というイメージでしたが、現在のメインの車両(3000形)は木目調で明るい感じになっていました。やっぱり新しい車両は、なんだか明るい感じがして良いですね。ポートライナーの幻影に悩まされることもなさそうです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-transportation9050"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_215945597.jpg" data-gallery="lg-transportation9050" data-title="六甲ライナー・アイランド北口駅" data-description="Pixel 9 Pro - 1/812, f/1.7, ISO 22"><img alt="六甲ライナー・アイランド北口駅" src="resources/photos.small/44/PXL_20251102_215945597.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9050"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_215945597.jpg" data-gallery="lg-transportation9050" data-title="六甲ライナー・アイランド北口駅" data-description="Pixel 9 Pro - 1/812, f/1.7, ISO 22" data-pswp-width="3000" data-pswp-height="2259"><img alt="六甲ライナー・アイランド北口駅" src="resources/photos.small/44/PXL_20251102_215945597.jpg"/>
                       <div class="caption hidden">
-                        <h4>六甲ライナー・アイランド北口駅</h4>
-                        <p>Pixel 9 Pro - 1/812, f/1.7, ISO 22</p>
+                        <p>六甲ライナー・アイランド北口駅</p>
+                        <p class="supportive">Pixel 9 Pro - 1/812, f/1.7, ISO 22</p>
                       </div></a>
                   </div>
                 </div>
@@ -489,14 +489,14 @@
 <p>岡山から山陽本線に戻って、倉敷まで行きます。</p>
 </div></div>
                 <div class="photos">
-                  <div class="gallery flex flex-wrap" id="lg-transportation9054"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4561.jpg" data-gallery="lg-transportation9054" data-title="Urara@倉敷駅" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200"><img alt="Urara@倉敷駅" src="resources/photos.small/44/IMG_4561.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9054"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4561.jpg" data-gallery="lg-transportation9054" data-title="Urara@倉敷駅" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200" data-pswp-width="3000" data-pswp-height="2000"><img alt="Urara@倉敷駅" src="resources/photos.small/44/IMG_4561.jpg"/>
                       <div class="caption hidden">
-                        <h4>Urara@倉敷駅</h4>
-                        <p>Canon EOS RP - 1/60, f/2.8, ISO 200</p>
-                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4592.jpg" data-gallery="lg-transportation9054" data-title="倉敷駅南口外観" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100"><img alt="倉敷駅南口外観" src="resources/photos.small/44/IMG_4592.jpg"/>
+                        <p>Urara@倉敷駅</p>
+                        <p class="supportive">Canon EOS RP - 1/60, f/2.8, ISO 200</p>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4592.jpg" data-gallery="lg-transportation9054" data-title="倉敷駅南口外観" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100" data-pswp-width="3000" data-pswp-height="2000"><img alt="倉敷駅南口外観" src="resources/photos.small/44/IMG_4592.jpg"/>
                       <div class="caption hidden">
-                        <h4>倉敷駅南口外観</h4>
-                        <p>Canon EOS RP - 1/500, f/8.0, ISO 100</p>
+                        <p>倉敷駅南口外観</p>
+                        <p class="supportive">Canon EOS RP - 1/500, f/8.0, ISO 100</p>
                       </div></a>
                   </div>
                 </div>

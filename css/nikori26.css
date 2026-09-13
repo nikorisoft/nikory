@@ -33,6 +33,7 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
+    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
     --leading-tight: 1.25;
@@ -270,9 +271,6 @@
   }
   .hidden {
     display: none;
-  }
-  .inline {
-    display: inline;
   }
   .h-1 {
     height: var(--spacing);
@@ -1123,21 +1121,27 @@
       visibility: hidden;
     }
   }
-  .glightbox-nikory .gslide-title {
-    margin-block: 0px;
-    text-align: center;
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+  .pswp__custom-caption {
+    background: rgb(0, 0, 0, 0.5);
     color: var(--color-gray-50);
+    width: calc(100% - 32px);
+    max-width: 800px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
   }
-  .glightbox-nikory .gslide-desc {
+  .pswp__custom-caption .supportive {
     text-align: center;
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
     color: var(--color-gray-400);
-  }
-  html {
-    scrollbar-gutter: stable;
   }
 }
 @property --tw-rotate-x {
