@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:site_name" content="nikory (nikorisoft blog)">
@@ -16,26 +16,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/17.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>oneworld Explorer Explorer</h1>
-          <p>Created on 2020/12/22<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">oneworld Explorer Explorer</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2020/12/22</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
 <p>さて、2020年最後の記事は、やはりoneworld Explorerです。<a href="./articles/13.html">前回</a>は、4大陸で3大陸を上回る効率を実現できることを示しました。旅行はできていませんが発券はできたので、ほぼ確実と言ってもいいでしょう。</p>
 <p>ここまでやって経路をひたすら手で探しているのは、さすがに人間としてどうかと思われる頃合いかと思いますので、たまにはプログラムを書いて探索をしてみることにしました。本来は、最長解を探すのが理想なのですが、いろいろな課題があり、それを解決するには能力も気力も足りないので、ほどほどな結果を出すことを目標としていきましょう。</p>
 <p>今回は、言語の練習としてRustで書いてみました。正しい使い方でないところが随所にあるかと思いますがご容赦くださいまし。</p>
@@ -283,10 +283,13 @@ oneworld Explorerのルール違反はありません。ですが、半数の路
 <h3><span>ソース</span></h3><p>READMEも何もなくて微妙ですが、いちおう<a href="https://github.com/nikorisoft/owe-explorer">ソース</a>を公開しておきます。</p>
 <!--- nikory-metadata: { "timestamp": "2020-12-22T00:00:00+09:00" } -->
 </div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

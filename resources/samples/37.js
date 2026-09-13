@@ -26,6 +26,10 @@ const files = [
 
 const tracks = [];
 
+const checkboxClass =
+    "w-4 h-4 rounded border-gray-300 dark:border-gray-700 accent-theme-500 cursor-pointer focus:ring-2 focus:ring-theme-500 focus:outline-none transition-colors";
+const rangeClass = "w-full accent-theme-500 hover:accent-theme-600 transition-colors cursor-pointer";
+
 async function onReady() {
     const tbody = document.getElementById("mixerBody");
 
@@ -42,6 +46,7 @@ async function onReady() {
         const soloInput = document.createElement("input");
         soloInput.setAttribute("role", "switch");
         soloInput.setAttribute("type", "checkbox");
+        soloInput.setAttribute("class", checkboxClass);
         soloInput.addEventListener("change", (event) => {
             t.setSolo(event.target.checked);
             applySoloAndMute();
@@ -52,6 +57,7 @@ async function onReady() {
         const muteInput = document.createElement("input");
         muteInput.setAttribute("role", "switch");
         muteInput.setAttribute("type", "checkbox");
+        muteInput.setAttribute("class", checkboxClass);
         muteInput.addEventListener("change", (event) => {
             t.setMuted(event.target.checked);
             applySoloAndMute();
@@ -64,6 +70,7 @@ async function onReady() {
         volumeInput.setAttribute("min", 0);
         volumeInput.setAttribute("max", 150);
         volumeInput.setAttribute("value", t.gainValue * 100);
+        volumeInput.setAttribute("class", rangeClass);
         volumeInput.addEventListener("change", (event) => {
             t.setGain(parseInt(event.target.value) / 100.0);
             applySoloAndMute();

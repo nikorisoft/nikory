@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:site_name" content="nikory (nikorisoft blog)">
@@ -16,26 +16,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/14.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>アメリカ州都訪問ガイド (一部)</h1>
-          <p>Created on 2020/12/11<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">アメリカ州都訪問ガイド (一部)</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2020/12/11</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><p>このエントリは、<a href="https://adventar.org/calendars/4945">ニューノーマル ぴょこりんクラスタ Advent Calendar 2020</a>のために書かれたものです。</p>
 <h2><span>はじめに</span></h2><p>アメリカの州都(State capital)をどれだけ訪問したことがありますか? 州都は、例えばボストン(マサチューセッツ州)、デンバー(コロラド州)、フェニックス(アリゾナ州)、ソルトレイクシティ(ユタ州)のように最大都市であることもありますが、歴史的事情やら何やらで、州の中でも比較的マイナーな市であることが多いです。極端な例では、モントピリア(バーモント州)のように人口わずか7千人台の市であることすらあります。</p>
 <p>今回は、自分が今まで訪問したことのある州都を紹介していきたいと思います。当然ながら自動車を使えば方法は自明なのですが、ここではなるべく公共交通機関(長距離バス除く)を用いて訪れる方法も含め書いて行きたいと思います。空路は、基本的に定期旅客便のある空港のみについて述べます。セスナ機のようなのだけが飛ぶ小さな空港はそれこそアメリカは膨大な数がありますので、それは少なくとも旅行で使うのは簡単ではないので省略します。</p>
 <p>本当は、今年(2020年)、50州全部網羅と言わずとももう少し増やそうと思っていたのですが、昨今の状況により、2021年含めて当面増える見込みもないので、とりあえずここで一つの区切りとして書いてみようと思います。</p>
@@ -300,10 +300,13 @@
 <p>州都は、これといって目立つ観光スポットがあるわけではないといった場所であることも多いですが、それはそれで新しい一面を見つけることができるので、何か機会があれば旅行の選択肢に入れてみるのも一興ではないでしょうか。</p>
 <!--- nikory-metadata: { "timestamp": "2020-12-11T00:00:00+09:00" } -->
 </div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

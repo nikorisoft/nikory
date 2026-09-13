@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <link rel="stylesheet" href="./css/asciidoc.css">
-    <link rel="stylesheet" href="./css/photoswipe.css">
+    <link rel="stylesheet" href="./css/glightbox.min.css">
+    <script type="module" src="./js/gallery.mjs"></script>
     <meta property="og:description" content="飛行機の搭乗記録に関する雑記と今年の修行の結果を述べます。">
     <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-41.jpg">
     <meta property="og:locale" content="ja_JP">
@@ -20,26 +21,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/41.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>2024年の修行リザルトと飛行機に関する雑記</h1>
-          <p>Created on 2024/12/23<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><div id="preamble">
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">2024年の修行リザルトと飛行機に関する雑記</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2024/12/23</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>このエントリは、<a href="https://adventar.org/calendars/10325">レジリエントでウェルビーイングなぴょこりんクラスタ Advent Calendar 2024</a>のために書かれたものです。</p>
@@ -489,11 +490,9 @@
 <div class="paragraph">
 <p>便名は、運航会社を表す文字列とその便を表す番号を組み合わせて表示します。冒頭の例でいえば、「NH 1781」です。</p>
 </div>
-<div class="gallery" id="gallery--1"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043744713.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043744713.jpg" data-pswp-width="3000" data-pswp-height="5088"><img src="resources/photos.small/41/PXL_20241215_043744713.jpg"></a></div><div class="pswp-caption-content">乗り継ぎ案内。便名はIATAの航空会社コードである"JL"と数字を組み合わせて表示されている</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--1");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--1"><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043744713.jpg" class="gallery-item" data-title="乗り継ぎ案内。便名はIATAの航空会社コードである"JL"と数字を組み合わせて表示されている" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241215_043744713.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-0">乗り継ぎ案内。便名はIATAの航空会社コードである"JL"と数字を組み合わせて表示されている</div></a></div>
 <div class="paragraph">
 <p>番号のほうについては、各航空会社で決めているものだと思われるので、明確なルールはないように思われます。日本の航空会社は、だいたい東から西に向かう便に奇数、その逆に偶数を割り当ててるように思われます。アメリカの航空会社では、往復に同じ番号を割り当てるという場合もあるようなので、本当に国それぞれもしくは会社それぞれな感じがします。</p>
 </div>
@@ -755,19 +754,17 @@
 <p>二つ目は、GPSで自分の位置を搭乗しながら確認することです。ただし、当然ながら離着陸時には通信を行うことができませんので地図はオフラインのものをどうにかしておく必要があります。あるいはGPSロガーで記録しておいてあとで照合することもできるでしょう。これも窓側の座席ならGPSを受信できることもできますが、中央になるほど難しいでしょう。機種によっては、窓のブラインドの仕様のせいかまったく受信できない機種もあります(787とか)。
 代替手段として、飛行機のエンタテインメントシステムにあるフライトマップなども参考にできる場合があるでしょう。</p>
 </div>
-<div class="gallery" id="gallery--2"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020940032.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020940032.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20241222_020940032.jpg"></a></div><div class="pswp-caption-content">滑走路に書かれた04の番号 (ISGの滑走路04)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020832125.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020832125.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20241222_020832125.jpg"></a></div><div class="pswp-caption-content">滑走路の入口にある04の標識</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--2");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--2"><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020940032.jpg" class="gallery-item" data-title="滑走路に書かれた04の番号 (ISGの滑走路04)" data-gallery="gallery--2" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241222_020940032.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--2-0">滑走路に書かれた04の番号 (ISGの滑走路04)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020832125.jpg" class="gallery-item" data-title="滑走路の入口にある04の標識" data-gallery="gallery--2" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241222_020832125.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--2-1">滑走路の入口にある04の標識</div></a></div>
 <div class="paragraph">
 <p>三つ目は、外の景色から判断することです。どこを走ってるか・飛んできたか、外を見ていて、空港マップが頭の中に入っていれば、だいたいわかります。ほか、滑走路の出入口の脇には、滑走路であることを示すサインが存在しますし、運が良ければ路面の標示を見ることもできるでしょう。これも窓側に近くないと難しいかもしれません。また夜間などはより一層判断が難しくなるでしょう。</p>
 </div>
-<div class="gallery" id="gallery--3"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020809942.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020809942.jpg" data-pswp-width="3000" data-pswp-height="3984"><img src="resources/photos.small/41/PXL_20241222_020809942.jpg"></a></div><div class="pswp-caption-content">写真に写ってないが左から右に滑走路があり、風向きから右から左方向に使いそうとわかる</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--3");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--3"><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_020809942.jpg" class="gallery-item" data-title="写真に写ってないが左から右に滑走路があり、風向きから右から左方向に使いそうとわかる" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241222_020809942.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-0">写真に写ってないが左から右に滑走路があり、風向きから右から左方向に使いそうとわかる</div></a></div>
 <div class="paragraph">
 <p>四つ目は、運用から判断することです。飛行機は好き勝手に滑走路を使っているわけではなく、風向き(向かい風で離陸・着陸するのが最も好ましい)などを考慮しており、だいたい季節や時間帯などによりどこから離陸・どこへ着陸するかは決まっています。前後の飛行機の状況を空港から観察すれば推測することも可能でしょう。まあ、滑走路の使い方が突然変更になることもあり、あくまで推測であって確実ではないのですが。あとは一本しかない空港であれば、コンパスを使えばどっちに行こうとしているかはわかるでしょう。</p>
 </div>
@@ -863,11 +860,9 @@
 </div>
 <div class="sect3">
 <h4 id="_どうやって知るのか">どうやって知るのか</h4>
-<div class="gallery" id="gallery--4"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_004439470.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_004439470.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20241222_004439470.jpg"></a></div><div class="pswp-caption-content">新石垣空港の7番ゲート</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--4");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--4"><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241222_004439470.jpg" class="gallery-item" data-title="新石垣空港の7番ゲート" data-gallery="gallery--4" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241222_004439470.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--4-0">新石垣空港の7番ゲート</div></a></div>
 <div class="paragraph">
 <p>これらの番号を搭乗する乗客としてはどう知ればいいのでしょうか。といってもゲートは、搭乗するためには必須の番号ですので、飛行機に乗ったことある人であればどうやってもわかるでしょう。(非常に小さい空港で番号すらついていないところもありますが)</p>
 </div>
@@ -1017,11 +1012,15 @@
 <div class="paragraph">
 <p>登録番号は実は飛行機に結構大きく書いてあります。下記に写真で例を示します。</p>
 </div>
-<div class="gallery" id="gallery--5"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043057467.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043057467.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20241215_043057467.jpg"></a></div><div class="pswp-caption-content">JTAの飛行機。翼にJA10RKの文字がある。さらに奥のスターフライヤーの胴体の後ろにJA25MCとある</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_042522814.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_042522814.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20241215_042522814.jpg"></a></div><div class="pswp-caption-content">BAの飛行機。胴体にG-ZBJF、垂直尾翼にBJF、前輪のところにBJF、見えづらいが左の翼の下にG-ZBJFとある</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20230513_193438549.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20230513_193438549.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/41/PXL_20230513_193438549.jpg"></a></div><div class="pswp-caption-content">Harbour Air(カナダ)の水上飛行機。胴体の後ろにC-GHAP、左の翼の下にC-GHAPとある</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/P1050854.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/P1050854.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/41/P1050854.jpg"></a></div><div class="pswp-caption-content">Finnair(フィンランド)の飛行機。前輪にZE、見えづらいが胴体の後ろにOH-LZEとある</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--5");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--5"><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_043057467.jpg" class="gallery-item" data-title="JTAの飛行機。翼にJA10RKの文字がある。さらに奥のスターフライヤーの胴体の後ろにJA25MCとある" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241215_043057467.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-0">JTAの飛行機。翼にJA10RKの文字がある。さらに奥のスターフライヤーの胴体の後ろにJA25MCとある</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20241215_042522814.jpg" class="gallery-item" data-title="BAの飛行機。胴体にG-ZBJF、垂直尾翼にBJF、前輪のところにBJF、見えづらいが左の翼の下にG-ZBJFとある" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20241215_042522814.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-1">BAの飛行機。胴体にG-ZBJF、垂直尾翼にBJF、前輪のところにBJF、見えづらいが左の翼の下にG-ZBJFとある</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/PXL_20230513_193438549.jpg" class="gallery-item" data-title="Harbour Air(カナダ)の水上飛行機。胴体の後ろにC-GHAP、左の翼の下にC-GHAPとある" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/PXL_20230513_193438549.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-2">Harbour Air(カナダ)の水上飛行機。胴体の後ろにC-GHAP、左の翼の下にC-GHAPとある</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/41-FOP/P1050854.jpg" class="gallery-item" data-title="Finnair(フィンランド)の飛行機。前輪にZE、見えづらいが胴体の後ろにOH-LZEとある" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/41/P1050854.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-3">Finnair(フィンランド)の飛行機。前輪にZE、見えづらいが胴体の後ろにOH-LZEとある</div></a></div>
 <div class="paragraph">
 <p>だいたい下記にあります。</p>
 </div>
@@ -1925,10 +1924,13 @@ tail surface; or
 </div>
 </div>
 </div></div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <link rel="stylesheet" href="./css/asciidoc.css">
-    <link rel="stylesheet" href="./css/photoswipe.css">
+    <link rel="stylesheet" href="./css/glightbox.min.css">
+    <script type="module" src="./js/gallery.mjs"></script>
     <meta property="og:description" content="サン=サーンスの交響曲第3番に関するぐだぐだとした文章">
     <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-37.jpg">
     <meta property="og:locale" content="ja_JP">
@@ -20,26 +21,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/37.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>オルガンとともに</h1>
-          <p>Created on 2024/12/10<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><div id="preamble">
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">オルガンとともに</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2024/12/10</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>このエントリは、<a href="https://adventar.org/calendars/10325">レジリエントでウェルビーイングなぴょこりんクラスタ Advent Calendar 2024</a>のために書かれたものです。</p>
@@ -156,8 +157,10 @@ Your browser does not support the audio tag.
 <div class="paragraph">
 <p>ソースコードは、<a href="https://github.com/nikorisoft/nikory/blob/main/resources/samples/37.js">GitHubからもご覧いただけます</a>。</p>
 </div>
-<button onclick="play()" id="playButton">Play</button>
-<button onclick="stop()" id="stopButton" disabled class="secondary">Stop</button>
+<div class="mb-2">
+<button onclick="play()" id="playButton" class="px-4 py-1.5 text-sm font-bold rounded-md bg-theme-500 text-white hover:bg-theme-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-theme-600 focus:ring-offset-1 dark:focus:ring-offset-gray-900 shadow-sm disabled:bg-gray-300 disabled:hover:bg-gray-300">Play</button>
+<button onclick="stop()" id="stopButton" disabled class="px-4 py-1.5 text-sm font-bold rounded-md bg-theme-500 text-white hover:bg-theme-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-theme-600 focus:ring-offset-1 dark:focus:ring-offset-gray-900 shadow-sm disabled:bg-gray-300 disabled:hover:bg-gray-300">Stop</button>
+</div>
 
 <table class="grid-rows frame-none">
     <thead>
@@ -304,18 +307,29 @@ Your browser does not support the audio tag.
 </div>
 <div class="sect2">
 <h3 id="_おまけの写真">おまけの写真</h3>
-<div class="gallery" id="gallery--1"><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_062117871.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_062117871.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/37/PXL_20240925_062117871.jpg"></a></div><div class="pswp-caption-content">東京駅丸の内駅舎の天井</div></div><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_092721204.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_092721204.jpg" data-pswp-width="3000" data-pswp-height="3984"><img src="resources/photos.small/37/PXL_20240925_092721204.jpg"></a></div><div class="pswp-caption-content">福島駅と梅田貨物線</div></div><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_092736726.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_092736726.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/37/PXL_20240925_092736726.jpg"></a></div><div class="pswp-caption-content">福島駅周辺</div></div><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_093435527.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_093435527.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/37/PXL_20240925_093435527.jpg"></a></div><div class="pswp-caption-content">The Symphony Hall</div></div><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_121916128.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_121916128.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/37/PXL_20240925_121916128.jpg"></a></div><div class="pswp-caption-content">大都会大阪 (うめきた再開発)</div></div><div class="gallery-item"><div><a href="./resources/photos/37-Osaka/PXL_20240925_122749980.jpg" data-pswp-src="./resources/photos/37-Osaka/PXL_20240925_122749980.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/37/PXL_20240925_122749980.jpg"></a></div><div class="pswp-caption-content">大阪駅うめきた口 (地上)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--1");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--1"><a href="./resources/photos/37-Osaka/PXL_20240925_062117871.jpg" class="gallery-item" data-title="東京駅丸の内駅舎の天井" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_062117871.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-0">東京駅丸の内駅舎の天井</div></a><a href="./resources/photos/37-Osaka/PXL_20240925_092721204.jpg" class="gallery-item" data-title="福島駅と梅田貨物線" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_092721204.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-1">福島駅と梅田貨物線</div></a><a href="./resources/photos/37-Osaka/PXL_20240925_092736726.jpg" class="gallery-item" data-title="福島駅周辺" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_092736726.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-2">福島駅周辺</div></a><a href="./resources/photos/37-Osaka/PXL_20240925_093435527.jpg" class="gallery-item" data-title="The Symphony Hall" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_093435527.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-3">The Symphony Hall</div></a><a href="./resources/photos/37-Osaka/PXL_20240925_121916128.jpg" class="gallery-item" data-title="大都会大阪 (うめきた再開発)" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_121916128.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-4">大都会大阪 (うめきた再開発)</div></a><a href="./resources/photos/37-Osaka/PXL_20240925_122749980.jpg" class="gallery-item" data-title="大阪駅うめきた口 (地上)" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/37/PXL_20240925_122749980.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-5">大阪駅うめきた口 (地上)</div></a></div>
 </div>
 </div>
 </div></div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

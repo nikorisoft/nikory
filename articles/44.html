@@ -6,15 +6,16 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <link rel="stylesheet" href="./css/asciidoc.css">
     <link rel="stylesheet" href="./css/maplibre-gl.css">
-    <link rel="stylesheet" href="./css/lightgallery-bundle.min.css">
     <link rel="stylesheet" href="./css/fontawesome.min.css">
     <link rel="stylesheet" href="./css/solid.min.css">
     <link rel="stylesheet" href="./css/regular.min.css">
+    <link rel="stylesheet" href="./css/glightbox.min.css">
+    <script type="module" src="./js/gallery.mjs"></script>
     <meta property="og:description" content="旅行記録からレポートを生成する仕組みを作ってみて、大分旅行をサンプルとして出してみたもの">
     <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-44.jpg">
     <meta property="og:locale" content="ja_JP">
@@ -24,26 +25,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/44.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>旅行レポートを作ろう</h1>
-          <p>Created on 2025/12/11<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><div class="paragraph">
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">旅行レポートを作ろう</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2025/12/11</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><div class="paragraph">
 <p>このエントリは、<a href="https://adventar.org/calendars/12216">穏やかなぴょこりんクラスタ Advent Calendar 2025</a>のために書かれたものです。</p>
 </div>
 <div class="paragraph">
@@ -65,8 +66,8 @@
 <div class="nitrox">
   <hr/>
   <header>
-    <h3>大分旅行</h3>
-    <div class="subtitle">2025/11/02～2025/11/03</div>
+    <h2>大分旅行</h2>
+    <div class="subtitle text-gray-500">2025/11/02～2025/11/03</div>
   </header>
   <div class="header-contents"><div class="paragraph">
 <p>これは非常にタイトルをつけるのが難しい旅行ですね。目的としては、大分空港と西大分を結ぶ <a href="https://hoverdrive.jp/ja/">ホーバークラフト</a> に乗るということと、長距離フェリーの一つである大分～神戸航路に乗るという二つの大きな目的があります。
@@ -112,15 +113,15 @@
 <p>ちなみに、大分はサンリオハーモニーランドがあるためか、サンリオとのコラボがいろいろなところで見受けられます。ということで、大分空港は完全に何かに乗っ取られておりました。(なお、<a href="https://www.nikkei.com/article/DGXZQOJC176LU0X10C25A3000000/">こちらの記事</a>によれば、空港のキャンペーンは、万博期間中ということですが、訪問時の11月でもまだやってました)</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-transportation9043"><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4286.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="搭乗機 (JA338J)" src="resources/photos.small/44/IMG_4286.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9043"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4286.jpg" data-gallery="lg-transportation9043" data-title="搭乗機 (JA338J)" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100"><img alt="搭乗機 (JA338J)" src="resources/photos.small/44/IMG_4286.jpg"/>
                       <div class="caption hidden">
                         <h4>搭乗機 (JA338J)</h4>
                         <p>Canon EOS RP - 1/160, f/4.5, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4288.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="ボーディングブリッジのさりげないキティ@OIT" src="resources/photos.small/44/IMG_4288.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4288.jpg" data-gallery="lg-transportation9043" data-title="ボーディングブリッジのさりげないキティ@OIT" data-description="Canon EOS RP - 1/320, f/5.6, ISO 100"><img alt="ボーディングブリッジのさりげないキティ@OIT" src="resources/photos.small/44/IMG_4288.jpg"/>
                       <div class="caption hidden">
                         <h4>ボーディングブリッジのさりげないキティ@OIT</h4>
                         <p>Canon EOS RP - 1/320, f/5.6, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4291.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="完全なるキティ" src="resources/photos.small/44/IMG_4291.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4291.jpg" data-gallery="lg-transportation9043" data-title="完全なるキティ" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200"><img alt="完全なるキティ" src="resources/photos.small/44/IMG_4291.jpg"/>
                       <div class="caption hidden">
                         <h4>完全なるキティ</h4>
                         <p>Canon EOS RP - 1/60, f/2.8, ISO 200</p>
@@ -162,23 +163,23 @@
 <p>1日4便しかないところが残念ですが、機会があればぜひ乗ってみるべきだと思います。地図で見るとわかりますが、地上交通だと湾をぐるっと回っていかないといけないので、ここをまっすぐ結んでいる点で所要時間的にも優れているといえるでしょう。・・・まあ、大分市内側は数分ではありますがバスで移動が必要なのは、海岸の場所からしてやむを得ないところではありますね・・・。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-transportation9046"><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4298.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="大分空港での案内板" src="resources/photos.small/44/IMG_4298.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9046"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4298.jpg" data-gallery="lg-transportation9046" data-title="大分空港での案内板" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100"><img alt="大分空港での案内板" src="resources/photos.small/44/IMG_4298.jpg"/>
                       <div class="caption hidden">
                         <h4>大分空港での案内板</h4>
                         <p>Canon EOS RP - 1/100, f/3.5, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4300.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="大分空港側のホーバーターミナル" src="resources/photos.small/44/IMG_4300.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4300.jpg" data-gallery="lg-transportation9046" data-title="大分空港側のホーバーターミナル" data-description="Canon EOS RP - 1/200, f/5.0, ISO 100"><img alt="大分空港側のホーバーターミナル" src="resources/photos.small/44/IMG_4300.jpg"/>
                       <div class="caption hidden">
                         <h4>大分空港側のホーバーターミナル</h4>
                         <p>Canon EOS RP - 1/200, f/5.0, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4321.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="ホーバークラフト (02)" src="resources/photos.small/44/IMG_4321.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4321.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフト (02)" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100"><img alt="ホーバークラフト (02)" src="resources/photos.small/44/IMG_4321.jpg"/>
                       <div class="caption hidden">
                         <h4>ホーバークラフト (02)</h4>
                         <p>Canon EOS RP - 1/500, f/8.0, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4324.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="ホーバークラフトの中" src="resources/photos.small/44/IMG_4324.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4324.jpg" data-gallery="lg-transportation9046" data-title="ホーバークラフトの中" data-description="Canon EOS RP - 1/60, f/2.8, ISO 160"><img alt="ホーバークラフトの中" src="resources/photos.small/44/IMG_4324.jpg"/>
                       <div class="caption hidden">
                         <h4>ホーバークラフトの中</h4>
                         <p>Canon EOS RP - 1/60, f/2.8, ISO 160</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4330.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="西大分ターミナルとホーバークラフト" src="resources/photos.small/44/IMG_4330.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4330.jpg" data-gallery="lg-transportation9046" data-title="西大分ターミナルとホーバークラフト" data-description="Canon EOS RP - 1/250, f/5.6, ISO 100"><img alt="西大分ターミナルとホーバークラフト" src="resources/photos.small/44/IMG_4330.jpg"/>
                       <div class="caption hidden">
                         <h4>西大分ターミナルとホーバークラフト</h4>
                         <p>Canon EOS RP - 1/250, f/5.6, ISO 100</p>
@@ -203,11 +204,11 @@
 <p>西大分ターミナルから歩いていけるところにある神社です。七五三のお祝をやってたようです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-visit97"><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4364.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="春日神社の手水舎" src="resources/photos.small/44/IMG_4364.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit97"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4364.jpg" data-gallery="lg-visit97" data-title="春日神社の手水舎" data-description="Canon EOS RP - 1/60, f/2.2, ISO 200"><img alt="春日神社の手水舎" src="resources/photos.small/44/IMG_4364.jpg"/>
                       <div class="caption hidden">
                         <h4>春日神社の手水舎</h4>
                         <p>Canon EOS RP - 1/60, f/2.2, ISO 200</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4368.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="春日神社" src="resources/photos.small/44/IMG_4368.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4368.jpg" data-gallery="lg-visit97" data-title="春日神社" data-description="Canon EOS RP - 1/160, f/4.5, ISO 100"><img alt="春日神社" src="resources/photos.small/44/IMG_4368.jpg"/>
                       <div class="caption hidden">
                         <h4>春日神社</h4>
                         <p>Canon EOS RP - 1/160, f/4.5, ISO 100</p>
@@ -235,15 +236,15 @@
 <p>市としては豊後大野市(旧緒方町)です。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-visit98"><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4379.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="原尻の滝" src="resources/photos.small/44/IMG_4379.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit98"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4379.jpg" data-gallery="lg-visit98" data-title="原尻の滝" data-description="Canon EOS RP - 1/80, f/3.2, ISO 100"><img alt="原尻の滝" src="resources/photos.small/44/IMG_4379.jpg"/>
                       <div class="caption hidden">
                         <h4>原尻の滝</h4>
                         <p>Canon EOS RP - 1/80, f/3.2, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4390.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="原尻の滝 (少し下から)" src="resources/photos.small/44/IMG_4390.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4390.jpg" data-gallery="lg-visit98" data-title="原尻の滝 (少し下から)" data-description="Canon EOS RP - 1/100, f/3.5, ISO 100"><img alt="原尻の滝 (少し下から)" src="resources/photos.small/44/IMG_4390.jpg"/>
                       <div class="caption hidden">
                         <h4>原尻の滝 (少し下から)</h4>
                         <p>Canon EOS RP - 1/100, f/3.5, ISO 100</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4395.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="滝見橋" src="resources/photos.small/44/IMG_4395.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4395.jpg" data-gallery="lg-visit98" data-title="滝見橋" data-description="Canon EOS RP - 1/125, f/4.0, ISO 100"><img alt="滝見橋" src="resources/photos.small/44/IMG_4395.jpg"/>
                       <div class="caption hidden">
                         <h4>滝見橋</h4>
                         <p>Canon EOS RP - 1/125, f/4.0, ISO 100</p>
@@ -271,11 +272,11 @@
 <p>まあ、逆に陸上で見学するとなると、そんなにほかの鍾乳洞と何か違うかというと微妙なところです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-visit99"><a href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_064335181.NIGHT.jpg" data-lg-size="3000-2259" data-sub-html=".caption"><img alt="稲積水中鍾乳洞" src="resources/photos.small/44/PXL_20251102_064335181.NIGHT.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-visit99"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_064335181.NIGHT.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞" data-description="Pixel 9 Pro - 1/29, f/1.7, ISO 413"><img alt="稲積水中鍾乳洞" src="resources/photos.small/44/PXL_20251102_064335181.NIGHT.jpg"/>
                       <div class="caption hidden">
                         <h4>稲積水中鍾乳洞</h4>
                         <p>Pixel 9 Pro - 1/29, f/1.7, ISO 413</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4516.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="稲積水中鍾乳洞の外" src="resources/photos.small/44/IMG_4516.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4516.jpg" data-gallery="lg-visit99" data-title="稲積水中鍾乳洞の外" data-description="Canon EOS RP - 1/60, f/2.5, ISO 200"><img alt="稲積水中鍾乳洞の外" src="resources/photos.small/44/IMG_4516.jpg"/>
                       <div class="caption hidden">
                         <h4>稲積水中鍾乳洞の外</h4>
                         <p>Canon EOS RP - 1/60, f/2.5, ISO 200</p>
@@ -311,7 +312,7 @@
 <p>神戸着が6:40ということで、レストランの朝食が5:30から開業とちょっと朝は早いです。出発が19時台なので、全体的にあと1時間遅ければいいのになと思わなくもないです。(実際、神戸が土日到着は1時間遅いダイヤになっています)</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-transportation9047"><a href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_090125416.jpg" data-lg-size="3000-2259" data-sub-html=".caption"><img alt="さんふらわあぱある" src="resources/photos.small/44/PXL_20251102_090125416.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9047"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_090125416.jpg" data-gallery="lg-transportation9047" data-title="さんふらわあぱある" data-description="Pixel 9 Pro - 1/40, f/1.7, ISO 552"><img alt="さんふらわあぱある" src="resources/photos.small/44/PXL_20251102_090125416.jpg"/>
                       <div class="caption hidden">
                         <h4>さんふらわあぱある</h4>
                         <p>Pixel 9 Pro - 1/40, f/1.7, ISO 552</p>
@@ -393,7 +394,7 @@
 <p>ひさしぶりの六甲ライナーです。以前は、ポートライナーよりさらに古い車両というイメージでしたが、現在のメインの車両(3000形)は木目調で明るい感じになっていました。やっぱり新しい車両は、なんだか明るい感じがして良いですね。ポートライナーの幻影に悩まされることもなさそうです。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-transportation9050"><a href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_215945597.jpg" data-lg-size="3000-2259" data-sub-html=".caption"><img alt="六甲ライナー・アイランド北口駅" src="resources/photos.small/44/PXL_20251102_215945597.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9050"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/PXL_20251102_215945597.jpg" data-gallery="lg-transportation9050" data-title="六甲ライナー・アイランド北口駅" data-description="Pixel 9 Pro - 1/812, f/1.7, ISO 22"><img alt="六甲ライナー・アイランド北口駅" src="resources/photos.small/44/PXL_20251102_215945597.jpg"/>
                       <div class="caption hidden">
                         <h4>六甲ライナー・アイランド北口駅</h4>
                         <p>Pixel 9 Pro - 1/812, f/1.7, ISO 22</p>
@@ -488,11 +489,11 @@
 <p>岡山から山陽本線に戻って、倉敷まで行きます。</p>
 </div></div>
                 <div class="photos">
-                  <div class="lg-gallery" id="lg-transportation9054"><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4561.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="Urara@倉敷駅" src="resources/photos.small/44/IMG_4561.jpg"/>
+                  <div class="gallery flex flex-wrap" id="lg-transportation9054"><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4561.jpg" data-gallery="lg-transportation9054" data-title="Urara@倉敷駅" data-description="Canon EOS RP - 1/60, f/2.8, ISO 200"><img alt="Urara@倉敷駅" src="resources/photos.small/44/IMG_4561.jpg"/>
                       <div class="caption hidden">
                         <h4>Urara@倉敷駅</h4>
                         <p>Canon EOS RP - 1/60, f/2.8, ISO 200</p>
-                      </div></a><a href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4592.jpg" data-lg-size="3000-2000" data-sub-html=".caption"><img alt="倉敷駅南口外観" src="resources/photos.small/44/IMG_4592.jpg"/>
+                      </div></a><a class="gallery-item" href="https://eroforrasok.nikori.jp/nitrox/1/IMG_4592.jpg" data-gallery="lg-transportation9054" data-title="倉敷駅南口外観" data-description="Canon EOS RP - 1/500, f/8.0, ISO 100"><img alt="倉敷駅南口外観" src="resources/photos.small/44/IMG_4592.jpg"/>
                       <div class="caption hidden">
                         <h4>倉敷駅南口外観</h4>
                         <p>Canon EOS RP - 1/500, f/8.0, ISO 100</p>
@@ -569,18 +570,15 @@
     import { initMap } from "./js/maplibre.mjs";
 
     initMap("trip-map");
-
-  </script>
-  <script type="module">
-    import { initGalleries } from "./js/lightgallery.mjs";
-
-    initGalleries();
   </script>
 </div></div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

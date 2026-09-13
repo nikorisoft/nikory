@@ -1,12 +1,10 @@
-import PhotoSwipeLightbox from "./photoswipe-lightbox.esm.min.js";
-import PhotoSwipe from "./photoswipe.esm.min.js";
+import "./glightbox.min.js";
 
-export function initGallery(id) {
-    const lb = new PhotoSwipeLightbox({
-        pswpModule: PhotoSwipe,
-        gallery: `#${id}`,
-        children: ".gallery-item",
+document.addEventListener("DOMContentLoaded", () => {
+    const lb = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        selector: ".gallery-item",
+        skin: "nikory",
     });
-
-    lb.init();
-}
+});

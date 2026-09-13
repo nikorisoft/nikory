@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap">
-    <link rel="stylesheet" href="./css/nikory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Mono&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="./css/nikori26.css">
     <link rel="stylesheet" href="./css/a11y-light.css">
     <link rel="stylesheet" href="./css/asciidoc.css">
-    <link rel="stylesheet" href="./css/photoswipe.css">
+    <link rel="stylesheet" href="./css/glightbox.min.css">
+    <script type="module" src="./js/gallery.mjs"></script>
     <meta property="og:description" content="旅行を中心とした2025年に達成したものの紹介">
     <meta property="og:image" content="https://nikori.jp/nikory/resources/tbs/thumbnail-43.jpg">
     <meta property="og:locale" content="ja_JP">
@@ -20,26 +21,26 @@
     <meta property="og:url" content="https://nikori.jp/nikory/articles/43.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <div class="container" id="root">
-      <header>
+  <body class="bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 text-base font-sans flex flex-col min-h-screen selection:bg-theme-600 selection:text-gray-50 transition-colors duration-200">
+    <header class="bg-theme-600 dark:bg-theme-700 text-white py-1 px-4 shadow-sm flex items-center">
+      <div class="max-w-6xl mx-auto flex w-full justify-between items-baseline">
+        <h1 class="text-2xl font-bold leading-none"><a href="/">nikori.jp</a></h1>
         <nav>
-          <ul>
-            <li><a href="/"><strong>nikory</strong></a></li>
-          </ul>
-          <ul>
+          <ul class="flex space-x-4 text-sm font-medium">
             <li><a href="../index.html">Articles Index</a></li>
             <li><a href="./articles/49.html">Latest Article</a></li>
           </ul>
         </nav>
-      </header>
-      <main>
-        <hgroup>
-          <h1>2025年のAchievements</h1>
-          <p>Created on 2025/12/06<span>by<a href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></p>
-        </hgroup>
-      </main>
-      <div class="contents"><div id="preamble">
+      </div>
+    </header>
+    <main class="flex-grow py-4 px-4">
+      <article class="max-w-6xl mx-auto">
+        <header class="mb-3 border-b border-gray-200 dark:border-gray-800 pb-2 flex flex-col md:flex-row justify-between md:items-end">
+          <h2 class="text-3xl font-bold mb-2">2025年のAchievements</h2>
+          <div class="text-xs text-gray-500 dark:text-gray-400 flex space-x-3 pb-1 justify-end"><span>
+              <time>2025/12/06</time></span><span>by<a class="ml-1" href="https://github.com/nikorisoft" target="_blank">nikorisoft</a></span></div>
+        </header>
+        <div class="contents converted"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>このエントリは、<a href="https://adventar.org/calendars/12216">穏やかなぴょこりんクラスタ Advent Calendar 2025</a>のために書かれたものです。</p>
@@ -126,11 +127,29 @@
 <div class="paragraph">
 <p>いわゆるOsaka Metroです。万博輸送を目的として、中央線が夢洲まで延伸されました。2月に行ったのは、万博自体にはいく予定がなかったことと、その時期は混雑する(列車だけでなく周辺ホテルとか含めて)可能性が高いと思ったためです。開業間際のタイミングも外したので、見事に工事や展示関係者と思しき人たちくらいしかいませんでしたね。</p>
 </div>
-<div class="gallery" id="gallery--1"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1187.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1187.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1187.jpg"></a></div><div class="pswp-caption-content">夢洲行の案内 @ 本町駅</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1198.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1198.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1198.jpg"></a></div><div class="pswp-caption-content">夢洲駅の改札コンコース</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250207_235555712.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250207_235555712.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/43/PXL_20250207_235555712.jpg"></a></div><div class="pswp-caption-content">夢洲駅の改札</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1197.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1197.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1197.jpg"></a></div><div class="pswp-caption-content">トイレ使用状況の案内板 (こんなアプリがどっかにあったような) @ 夢洲駅</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1210.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1210.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1210.jpg"></a></div><div class="pswp-caption-content">夢洲駅出入口</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1212.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1212.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1212.jpg"></a></div><div class="pswp-caption-content">工事中の案内</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1213.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1213.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1213.jpg"></a></div><div class="pswp-caption-content">東ゲート (工事中)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1217.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1217.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1217.jpg"></a></div><div class="pswp-caption-content">工事中の万博会場と大屋根リング</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1218.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1218.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_1218.jpg"></a></div><div class="pswp-caption-content">夢洲駅周辺</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_000033338.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_000033338.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/43/PXL_20250208_000033338.jpg"></a></div><div class="pswp-caption-content">夢洲駅周辺</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_003921472.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_003921472.jpg" data-pswp-width="3000" data-pswp-height="3984"><img src="resources/photos.small/43/PXL_20250208_003921472.jpg"></a></div><div class="pswp-caption-content">夢洲行の中央線列車(400系) @ 森ノ宮駅  (一部修整)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--1");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--1"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1187.jpg" class="gallery-item" data-title="夢洲行の案内 @ 本町駅" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1187.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-0">夢洲行の案内 @ 本町駅</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1198.jpg" class="gallery-item" data-title="夢洲駅の改札コンコース" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1198.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-1">夢洲駅の改札コンコース</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250207_235555712.jpg" class="gallery-item" data-title="夢洲駅の改札" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20250207_235555712.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-2">夢洲駅の改札</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1197.jpg" class="gallery-item" data-title="トイレ使用状況の案内板 (こんなアプリがどっかにあったような) @ 夢洲駅" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1197.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-3">トイレ使用状況の案内板 (こんなアプリがどっかにあったような) @ 夢洲駅</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1210.jpg" class="gallery-item" data-title="夢洲駅出入口" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1210.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-4">夢洲駅出入口</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1212.jpg" class="gallery-item" data-title="工事中の案内" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1212.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-5">工事中の案内</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1213.jpg" class="gallery-item" data-title="東ゲート (工事中)" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1213.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-6">東ゲート (工事中)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1217.jpg" class="gallery-item" data-title="工事中の万博会場と大屋根リング" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1217.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-7">工事中の万博会場と大屋根リング</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_1218.jpg" class="gallery-item" data-title="夢洲駅周辺" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_1218.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-8">夢洲駅周辺</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_000033338.jpg" class="gallery-item" data-title="夢洲駅周辺" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20250208_000033338.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-9">夢洲駅周辺</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250208_003921472.jpg" class="gallery-item" data-title="夢洲行の中央線列車(400系) @ 森ノ宮駅  (一部修整)" data-gallery="gallery--1" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20250208_003921472.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--1-10">夢洲行の中央線列車(400系) @ 森ノ宮駅  (一部修整)</div></a></div>
 <div class="paragraph">
 <p>上の写真のような感じで、万博会場中は人が多かったであろう駅もガラガラです。駅周辺は基本的に工事中で、ほとんどどこか外に行けるような感じではなかったです。(ただ近くのコンビニなどには徒歩で行けるはずなのでルートはあったんでしょうけど)。
 今は果たしてどうなってるんでしょうね。</p>
@@ -185,11 +204,9 @@
 <div class="paragraph">
 <p>この新しいルートへの変更というのは、<a href="https://www.hiroden-hiroshima-st.jp/">広島電鉄の駅前大橋ルートのホームページ</a>が存在するような大きなプロジェクトです。広島の路面電車である広島電鉄が、JR広島駅の駅ビル2階に直接乗り入れるというもので、JRの改札と同じフロアで広島電鉄に乗り換えられるようになりました。</p>
 </div>
-<div class="gallery" id="gallery--2"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20251017_084843297.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20251017_084843297.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/43/PXL_20251017_084843297.jpg"></a></div><div class="pswp-caption-content">新しい広島電鉄の広島駅停留所 (一部修整)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--2");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--2"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20251017_084843297.jpg" class="gallery-item" data-title="新しい広島電鉄の広島駅停留所 (一部修整)" data-gallery="gallery--2" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20251017_084843297.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--2-0">新しい広島電鉄の広島駅停留所 (一部修整)</div></a></div>
 <div class="paragraph">
 <p>2Fの改札コンコースに頭端式の広島電鉄のホームが直結しており、1号線・2号線・5号線・6号線の系統が発着しています。開放的でカッコいいですね。
 路面電車は、ここから高架橋（駅前大橋）で下の道路に降りていき、南詰の交差点で合流する形となっています。</p>
@@ -315,11 +332,25 @@
 <div class="paragraph">
 <p>利尻島へは空路(利尻空港)もしくは航路(鴛泊港・沓形港)でアクセスすることができます。航路としては、HACが丘珠空港(OKD)から運航、加えて夏季限定でANAが新千歳空港(CTS)から運航しています。今回は、行きは新千歳空港から飛行機で、帰りは鴛泊港からフェリーで稚内港へ帰るという旅程としました。</p>
 </div>
-<div class="gallery" id="gallery--3"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250608_041423550.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250608_041423550.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/43/PXL_20250608_041423550.jpg"></a></div><div class="pswp-caption-content">利尻空港へのアプローチからの利尻富士</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3441.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3441.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3441.jpg"></a></div><div class="pswp-caption-content">ANAの機体と利尻富士 @ 利尻空港</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3457.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3457.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3457.jpg"></a></div><div class="pswp-caption-content">利尻富士 @ 富士野園地</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3543.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3543.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3543.jpg"></a></div><div class="pswp-caption-content">姫沼</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3685.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3685.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3685.jpg"></a></div><div class="pswp-caption-content">白い恋人の丘 (パッケージの絵はここからの風景らしい)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3707.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3707.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3707.jpg"></a></div><div class="pswp-caption-content">沓形岬灯台</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3490.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3490.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3490.jpg"></a></div><div class="pswp-caption-content">自転車道も整備されている</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3893.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3893.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/IMG_3893.jpg"></a></div><div class="pswp-caption-content">ポン山からの利尻空港</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250609_070835086.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250609_070835086.jpg" data-pswp-width="3000" data-pswp-height="2259"><img src="resources/photos.small/43/PXL_20250609_070835086.jpg"></a></div><div class="pswp-caption-content">鴛泊～稚内のフェリー (サイプリア宗谷)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--3");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--3"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250608_041423550.jpg" class="gallery-item" data-title="利尻空港へのアプローチからの利尻富士" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20250608_041423550.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-0">利尻空港へのアプローチからの利尻富士</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3441.jpg" class="gallery-item" data-title="ANAの機体と利尻富士 @ 利尻空港" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3441.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-1">ANAの機体と利尻富士 @ 利尻空港</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3457.jpg" class="gallery-item" data-title="利尻富士 @ 富士野園地" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3457.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-2">利尻富士 @ 富士野園地</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3543.jpg" class="gallery-item" data-title="姫沼" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3543.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-3">姫沼</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3685.jpg" class="gallery-item" data-title="白い恋人の丘 (パッケージの絵はここからの風景らしい)" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3685.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-4">白い恋人の丘 (パッケージの絵はここからの風景らしい)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3707.jpg" class="gallery-item" data-title="沓形岬灯台" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3707.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-5">沓形岬灯台</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3490.jpg" class="gallery-item" data-title="自転車道も整備されている" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3490.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-6">自転車道も整備されている</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/IMG_3893.jpg" class="gallery-item" data-title="ポン山からの利尻空港" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/IMG_3893.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-7">ポン山からの利尻空港</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/PXL_20250609_070835086.jpg" class="gallery-item" data-title="鴛泊～稚内のフェリー (サイプリア宗谷)" data-gallery="gallery--3" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/PXL_20250609_070835086.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--3-8">鴛泊～稚内のフェリー (サイプリア宗谷)</div></a></div>
 <div class="paragraph">
 <p>利尻島はヒグマも基本的にはいないらしく(稀に泳いでくる事例はあるらしいですが)、安心して散策することができるのがよいところですね。まあ、自然のコンテンツとしては利尻富士ぐらいなのですが・・(暴論)。</p>
 </div>
@@ -382,20 +413,42 @@
 <div class="paragraph">
 <p>そんなわけで、利尻島と同様に、行きは飛行機で帰りは船を使う日程としました。</p>
 </div>
-<div class="gallery" id="gallery--4"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00258.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00258.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00258.jpg"></a></div><div class="pswp-caption-content">搭乗機DHC-6-400 (JA201D)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00252.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00252.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00252.jpg"></a></div><div class="pswp-caption-content">搭乗券というかバッジとバス利用券 (一部修整)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00263.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00263.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00263.jpg"></a></div><div class="pswp-caption-content">波照間空港ターミナル</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00261.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00261.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00261.jpg"></a></div><div class="pswp-caption-content">集落への送迎バス</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--4");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--4"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00258.jpg" class="gallery-item" data-title="搭乗機DHC-6-400 (JA201D)" data-gallery="gallery--4" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00258.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--4-0">搭乗機DHC-6-400 (JA201D)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00252.jpg" class="gallery-item" data-title="搭乗券というかバッジとバス利用券 (一部修整)" data-gallery="gallery--4" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00252.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--4-1">搭乗券というかバッジとバス利用券 (一部修整)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00263.jpg" class="gallery-item" data-title="波照間空港ターミナル" data-gallery="gallery--4" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00263.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--4-2">波照間空港ターミナル</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00261.jpg" class="gallery-item" data-title="集落への送迎バス" data-gallery="gallery--4" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00261.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--4-3">集落への送迎バス</div></a></div>
 <div class="paragraph">
 <p>飛行機は小さいDHC-6-400です。国内では、今は第一航空しか使ってないようですね。離島空港ということで非常に簡素な施設となっています。
 なお、波照間島の集落からは少し離れているので、中心にあるムシャーマ公園までの送迎バスを使うことができます。</p>
 </div>
-<div class="gallery" id="gallery--5"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00273.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00273.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00273.jpg"></a></div><div class="pswp-caption-content">集落</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00281.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00281.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00281.jpg"></a></div><div class="pswp-caption-content">たぶんバナーナ</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00367.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00367.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00367.jpg"></a></div><div class="pswp-caption-content">日本最南端の碑周辺</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00368.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00368.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00368.jpg"></a></div><div class="pswp-caption-content">日本最南端の碑</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00451.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00451.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00451.jpg"></a></div><div class="pswp-caption-content">かきごおり</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00452.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00452.jpg" data-pswp-width="3000" data-pswp-height="4500"><img src="resources/photos.small/43/DSC00452.jpg"></a></div><div class="pswp-caption-content">波照間精糖</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00458.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00458.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00458.jpg"></a></div><div class="pswp-caption-content">海と西表島</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00469.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00469.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00469.jpg"></a></div><div class="pswp-caption-content">シンプルな情報</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00478.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00478.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00478.jpg"></a></div><div class="pswp-caption-content">謎シンボル</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00480.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00480.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00480.jpg"></a></div><div class="pswp-caption-content">波照間船客ターミナル</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00493.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00493.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00493.jpg"></a></div><div class="pswp-caption-content">ぱいじま2 (波照間～石垣)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--5");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--5"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00273.jpg" class="gallery-item" data-title="集落" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00273.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-0">集落</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00281.jpg" class="gallery-item" data-title="たぶんバナーナ" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00281.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-1">たぶんバナーナ</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00367.jpg" class="gallery-item" data-title="日本最南端の碑周辺" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00367.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-2">日本最南端の碑周辺</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00368.jpg" class="gallery-item" data-title="日本最南端の碑" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00368.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-3">日本最南端の碑</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00451.jpg" class="gallery-item" data-title="かきごおり" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00451.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-4">かきごおり</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00452.jpg" class="gallery-item" data-title="波照間精糖" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00452.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-5">波照間精糖</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00458.jpg" class="gallery-item" data-title="海と西表島" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00458.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-6">海と西表島</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00469.jpg" class="gallery-item" data-title="シンプルな情報" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00469.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-7">シンプルな情報</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00478.jpg" class="gallery-item" data-title="謎シンボル" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00478.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-8">謎シンボル</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00480.jpg" class="gallery-item" data-title="波照間船客ターミナル" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00480.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-9">波照間船客ターミナル</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00493.jpg" class="gallery-item" data-title="ぱいじま2 (波照間～石垣)" data-gallery="gallery--5" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00493.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--5-10">ぱいじま2 (波照間～石垣)</div></a></div>
 <div class="paragraph">
 <p>島はまあそれなりの大きさですので、自転車で回るのが一番ちょうどよいかもしれません。自分は、自転車を予約してなかったり、店に直接行ってみたら誰もいなかったりしたので、結局徒歩にしましたが、まあ暑かったです。距離的には半周くらいなら歩ける距離なのですが、いかんせん暑いです。幸い日陰はかなり涼しかったので休憩しつつ何とか回りましたが、まあ自転車とかが一番無難でしょう。</p>
 </div>
@@ -464,11 +517,27 @@
 <div class="paragraph">
 <p>幸いにして飛行機は遅れはしましたが飛んだので、無事にAGJを使い粟国島に降り立つことができました。ただ、その代わり、滞在時間が30分くらいとなってしまい、空港周辺を歩くくらいしかできなかったという悲しい状況です。まあ、飛行機もフェリーも那覇起点なのでそうそう簡単に行くこともできない場所なので、これはこれでしょうがないですね。また、機会があれば行ってみたいところです。</p>
 </div>
-<div class="gallery" id="gallery--6"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00565.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00565.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00565.jpg"></a></div><div class="pswp-caption-content">搭乗機DHC-6-400 (JA202D) @ AGJ</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00550.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00550.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00550.jpg"></a></div><div class="pswp-caption-content">那覇空港 36Lからの離陸</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00558.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00558.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00558.jpg"></a></div><div class="pswp-caption-content">粟国島上空</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00560.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00560.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00560.jpg"></a></div><div class="pswp-caption-content">粟国漁港 (フェリーはこの港ではない)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00566.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00566.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00566.jpg"></a></div><div class="pswp-caption-content">粟国空港ターミナル</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00570.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00570.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00570.jpg"></a></div><div class="pswp-caption-content">粟国島の道 1</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00577.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00577.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00577.jpg"></a></div><div class="pswp-caption-content">粟国島の道 2</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00583.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00583.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00583.jpg"></a></div><div class="pswp-caption-content">粟国島の海岸</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00593.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00593.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00593.jpg"></a></div><div class="pswp-caption-content">沖縄海塩研究所</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00612.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00612.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC00612.jpg"></a></div><div class="pswp-caption-content">アニーちゃん</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--6");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--6"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00565.jpg" class="gallery-item" data-title="搭乗機DHC-6-400 (JA202D) @ AGJ" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00565.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-0">搭乗機DHC-6-400 (JA202D) @ AGJ</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00550.jpg" class="gallery-item" data-title="那覇空港 36Lからの離陸" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00550.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-1">那覇空港 36Lからの離陸</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00558.jpg" class="gallery-item" data-title="粟国島上空" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00558.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-2">粟国島上空</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00560.jpg" class="gallery-item" data-title="粟国漁港 (フェリーはこの港ではない)" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00560.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-3">粟国漁港 (フェリーはこの港ではない)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00566.jpg" class="gallery-item" data-title="粟国空港ターミナル" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00566.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-4">粟国空港ターミナル</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00570.jpg" class="gallery-item" data-title="粟国島の道 1" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00570.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-5">粟国島の道 1</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00577.jpg" class="gallery-item" data-title="粟国島の道 2" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00577.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-6">粟国島の道 2</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00583.jpg" class="gallery-item" data-title="粟国島の海岸" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00583.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-7">粟国島の海岸</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00593.jpg" class="gallery-item" data-title="沖縄海塩研究所" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00593.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-8">沖縄海塩研究所</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC00612.jpg" class="gallery-item" data-title="アニーちゃん" data-gallery="gallery--6" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC00612.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--6-9">アニーちゃん</div></a></div>
 <div class="paragraph">
 <p>なお、那覇空港は、保安検査を普通に通るのではなく、ターミナル横からバス(というかバン)に乗る形でした。バス乗車前に開披検査などの保安検査を行い、滑走路を挟んで反対側にある駐機場まで行くという非常に珍しい形でした。しかも離陸は、36L(新しいほうの滑走路)と普通では経験できないものでした。(普通の旅客機は36L/18Rは着陸のみ、36R/18Lは離陸のみという運用)。これを経験するだけでも、この航路に乗る価値はあるでしょう。</p>
 </div>
@@ -528,19 +597,29 @@
 <div class="paragraph">
 <p>今回も、行きは飛行機、帰りはフェリーにしようとしたのですが、いろいろな日程を調整した結果日曜日に行くことになり、フェリーは日曜日運休であるため、やむなく往復飛行機としました。本当は、MMY-TRA-ISGみたいなのにもしたかったのですが、それも曜日が合わず、単純なMMY-TRA往復となりました。まあ一日2便があるので、十分な滞在時間は確保できたのがよかったですけれども。</p>
 </div>
-<div class="gallery" id="gallery--7"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01965.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01965.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC01965.jpg"></a></div><div class="pswp-caption-content">搭乗機DHC-8-Q400CC (JA83RC) @ MMY</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01971.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01971.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC01971.jpg"></a></div><div class="pswp-caption-content">多良間空港ターミナル</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01973.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01973.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC01973.jpg"></a></div><div class="pswp-caption-content">多良間村有償運送バス(空港～役場前～夢パティオたらま)</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--7");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--7"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01965.jpg" class="gallery-item" data-title="搭乗機DHC-8-Q400CC (JA83RC) @ MMY" data-gallery="gallery--7" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC01965.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--7-0">搭乗機DHC-8-Q400CC (JA83RC) @ MMY</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01971.jpg" class="gallery-item" data-title="多良間空港ターミナル" data-gallery="gallery--7" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC01971.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--7-1">多良間空港ターミナル</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC01973.jpg" class="gallery-item" data-title="多良間村有償運送バス(空港～役場前～夢パティオたらま)" data-gallery="gallery--7" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC01973.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--7-2">多良間村有償運送バス(空港～役場前～夢パティオたらま)</div></a></div>
 <div class="paragraph">
 <p>波照間島の経験を活かし自転車で回りました。やっぱり、これくらいの離島には自転車というのがちょうどいい感じですね。</p>
 </div>
-<div class="gallery" id="gallery--8"><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02083.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02083.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02083.jpg"></a></div><div class="pswp-caption-content">三ツ瀬公園からの海</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02149.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02149.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02149.jpg"></a></div><div class="pswp-caption-content">八重山遠見台</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02154.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02154.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02154.jpg"></a></div><div class="pswp-caption-content">八重山遠見台(上から)</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02151.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02151.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02151.jpg"></a></div><div class="pswp-caption-content">八重山遠見台公園の展望台から 1</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02161.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02161.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02161.jpg"></a></div><div class="pswp-caption-content">八重山遠見台公園の展望台から 2</div></div><div class="gallery-item"><div><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02228.jpg" data-pswp-src="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02228.jpg" data-pswp-width="3000" data-pswp-height="2000"><img src="resources/photos.small/43/DSC02228.jpg"></a></div><div class="pswp-caption-content">多良間村役場</div></div></div><script type="module">
-                    import { initGallery } from "./js/gallery.mjs";
-
-                    initGallery("gallery--8");
-                    </script>
+<div class="gallery flex flex-wrap mx-auto my-2 justify-center gap-4" id="gallery--8"><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02083.jpg" class="gallery-item" data-title="三ツ瀬公園からの海" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02083.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-0">三ツ瀬公園からの海</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02149.jpg" class="gallery-item" data-title="八重山遠見台" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02149.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-1">八重山遠見台</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02154.jpg" class="gallery-item" data-title="八重山遠見台(上から)" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02154.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-2">八重山遠見台(上から)</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02151.jpg" class="gallery-item" data-title="八重山遠見台公園の展望台から 1" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02151.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-3">八重山遠見台公園の展望台から 1</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02161.jpg" class="gallery-item" data-title="八重山遠見台公園の展望台から 2" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02161.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-4">八重山遠見台公園の展望台から 2</div></a><a href="https://eroforrasok.nikori.jp/nikory/photos/43-Achievements2025/DSC02228.jpg" class="gallery-item" data-title="多良間村役場" data-gallery="gallery--8" data-zoomable="true" data-draggable="true">
+                              <img src="resources/photos.small/43/DSC02228.jpg">
+                              <div class="text-sm text-center font-bold" id="gallery--8-5">多良間村役場</div></a></div>
 <div class="paragraph">
 <p>こちらは計画通り回ることができました。</p>
 </div>
@@ -1206,10 +1285,13 @@
 </div>
 </div>
 </div></div>
-      <footer>
-        <div>nikory - Ver. 1.1</div>
-        <div>Copyright &copy; 2018-2026<a href="https://github.com/nikorisoft">nikorisoft</a></div>
-      </footer>
-    </div>
+      </article>
+    </main>
+    <footer class="text-gray-500 dark:text-gray-400 py-1 text-center border-t border-gray-200 dark:border-gray-800 text-xs bg-white dark:bg-gray-950">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between">
+        <p>nikory - Ver. 1.1</p>
+        <p>Copyright &copy; 2018-2026<a class="ml-1" href="https://github.com/nikorisoft">nikorisoft</a></p>
+      </div>
+    </footer>
   </body>
 </html>

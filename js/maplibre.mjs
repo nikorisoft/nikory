@@ -1,9 +1,9 @@
 // @ts-check
-import "./maplibre-gl.js";
+import * as maplibregl from "./maplibre-gl.mjs";
 
 const lineColors = {
-    inactive: "rgb(93 107 137 / 50%)",
-    active: "rgb(249 115 22)",
+    inactive: "rgb(180 160 229 / 0.5)",
+    active: "rgb(101 62 203)",
 };
 const lineWidths = {
     inactive: 2,
